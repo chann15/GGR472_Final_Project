@@ -6581,7 +6581,6 @@
                 "zipcode": "M6G3N6",
                 "homeType": "SINGLE_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.67374801635742,-79.42816925048828&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=mN1iRryY8RW7HGTESxRz4W0N4XY=",
                 "hasImage": null,
                 "units": [
                     {
@@ -9226,7 +9225,6 @@
                 "zipcode": "M1B5K1",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.80022048950195,-79.23760223388672&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=Oo4brJQdMmJ34jzCw-dS6-SRrY0=",
                 "hasImage": null,
                 "units": [
                     {
@@ -10041,7 +10039,6 @@
                 "zipcode": "M8Y2Z4",
                 "homeType": "SINGLE_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6261100769043,-79.49339294433594&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=FTUQdZSGXAUXy6rszc8kihRZ3yQ=",
                 "hasImage": null,
                 "units": [
                     {
@@ -10074,7 +10071,6 @@
                 "zipcode": "M6E3T6",
                 "homeType": "SINGLE_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6835823059082,-79.44670104980469&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=pIH7XGukz0hc8B2kKHSHJNFl5jE=",
                 "hasImage": null,
                 "units": [
                     {
@@ -14361,7 +14357,6 @@
                 "zipcode": "M6P3P2",
                 "homeType": "TOWNHOUSE",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.66082000732422,-79.45232391357422&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=6MKbGHoi-tzOJrE9fPBW9Id6MMs=",
                 "hasImage": null,
                 "units": [
                     {
@@ -15128,7 +15123,6 @@
                 "zipcode": "M4R1J3",
                 "homeType": "SINGLE_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.71127700805664,-79.41009521484375&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=rOWXmTT7SYEcRDos7UH34d6S6Y8=",
                 "hasImage": null,
                 "units": [
                     {
@@ -16657,7 +16651,6 @@
                 "zipcode": "M5R0B4",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.670265197753906,-79.39435577392578&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=Oc3AmvmPbeDyWhZ7H8f1455pJTk=",
                 "hasImage": null,
                 "units": [
                     {
@@ -16699,7 +16692,6 @@
                 "zipcode": "M5G2K5",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.65777587890625,-79.38329315185547&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=RqDcSUIIZT2F_g0Mj-WEvQz4kmc=",
                 "hasImage": null,
                 "units": [
                     {
@@ -19170,7 +19162,6 @@
                 "zipcode": "M5R0C2",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.67460632324219,-79.39952850341797&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=3vms0Q7w55-uUllrNAqACf27doM=",
                 "hasImage": null,
                 "units": [
                     {
@@ -19207,7 +19198,6 @@
                 "zipcode": "M5S0C6",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.66480255126953,-79.38697052001953&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=mYVo5acPeaSmjHFAq6Y9EG2QRn4=",
                 "hasImage": null,
                 "units": [
                     {
@@ -19437,7 +19427,6 @@
                 "zipcode": "M4J0A8",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.68112564086914,-79.33243560791016&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=zqdTPH-VyDOgDRaCnyozLe2u8wI=",
                 "hasImage": null,
                 "units": [
                     {
@@ -19469,7 +19458,6 @@
                 "zipcode": "M5A0L4",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6522216796875,-79.3708724975586&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=yENq797K-YSVSp-iHpsBMIMYxLQ=",
                 "hasImage": null,
                 "units": [
                     {
@@ -21200,7 +21188,6 @@
                 "zipcode": "M4E1S6",
                 "homeType": "SINGLE_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.68015670776367,-79.28860473632812&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=uV9eThDZJDEUtTjmC2eQnRXxvv0=",
                 "hasImage": null,
                 "units": [
                     {
@@ -22928,7 +22915,6 @@
                 "zipcode": "M1B5Z3",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.79184341430664,-79.2372817993164&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=Nzw7qJwbTqicSUSDVwYoAtR_EKk=",
                 "hasImage": null,
                 "units": [
                     {
@@ -25126,7 +25112,6 @@
                 "zipcode": "M6K3R5",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.63877487182617,-79.41631317138672&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=dRM8d_pvtNXEKTxtKD1xycBVoZY=",
                 "hasImage": null,
                 "units": [
                     {
@@ -25173,7 +25158,6 @@
                 "zipcode": "M5P2K8",
                 "homeType": "MULTI_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.703704833984375,-79.40843200683594&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=P2PXamYYC48jpwn_J5bGkI8XGsE=",
                 "hasImage": null,
                 "units": [
                     {
@@ -25206,7 +25190,6 @@
                 "zipcode": "M4W3Z4",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6729850769043,-79.38703155517578&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=ETZV8uVpN6YY-Ww2RHFfCAFSISY=",
                 "hasImage": null,
                 "units": [
                     {
@@ -28210,7 +28193,6 @@
                 "zipcode": "M5G1S9",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.65398025512695,-79.38851928710938&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=gMRTsjMqYgNWsN8ETYLIvp-KD-I=",
                 "hasImage": null,
                 "units": [
                     {
@@ -31431,7 +31413,6 @@
                 "zipcode": "M5V0V9",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6461181640625,-79.40054321289062&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=S7SgZjVAWTK_-P5_HtG28yHxCn4=",
                 "hasImage": null,
                 "units": [
                     {
@@ -31468,7 +31449,6 @@
                 "zipcode": "M5V2E7",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.647274017333984,-79.39167022705078&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=_ktLK-bUbmZ-qFO_GTERyuGpwvQ=",
                 "hasImage": null,
                 "units": [
                     {
@@ -31515,7 +31495,6 @@
                 "zipcode": "M5S3L9",
                 "homeType": null,
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.66803741455078,-79.38844299316406&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=ic1WzfDj8ZqUpvZ1LbVJABPD9Qs=",
                 "hasImage": null,
                 "units": [
                     {
@@ -34076,7 +34055,6 @@
                 "zipcode": "M2M1J5",
                 "homeType": "SINGLE_FAMILY",
                 "currency": "CAD",
-                "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.787899017333984,-79.42965698242188&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=fomEhKxMfo-rhSXUy7Mzgqwtf5k=",
                 "hasImage": null,
                 "units": [
                     {

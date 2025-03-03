@@ -6959,7 +6959,6 @@
             "unit": "# BASEMENT",
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.67374801635742,-79.42816925048828&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=mN1iRryY8RW7HGTESxRz4W0N4XY=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "3 hours ago",
@@ -9377,7 +9376,6 @@
             "zipcode": "M1B5K1",
             "latitude": 43.80022,
             "longitude": -79.2376,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.80022048950195,-79.23760223388672&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=Oo4brJQdMmJ34jzCw-dS6-SRrY0=",
             "isBuilding": true,
             "units": [
                 {
@@ -10263,7 +10261,6 @@
             "isZillowOwned": false,
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6261100769043,-79.49339294433594&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=FTUQdZSGXAUXy6rszc8kihRZ3yQ=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "9 hours ago",
@@ -10302,7 +10299,6 @@
             "isZillowOwned": false,
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6835823059082,-79.44670104980469&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=pIH7XGukz0hc8B2kKHSHJNFl5jE=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "9 hours ago",
@@ -14279,7 +14275,6 @@
             "unit": "# 802",
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.66082000732422,-79.45232391357422&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=6MKbGHoi-tzOJrE9fPBW9Id6MMs=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "21 hours ago",
@@ -15067,7 +15062,6 @@
             "isZillowOwned": false,
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.71127700805664,-79.41009521484375&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=rOWXmTT7SYEcRDos7UH34d6S6Y8=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "1 day ago",
@@ -16449,7 +16443,6 @@
             "zipcode": "M5R0B4",
             "latitude": 43.670265,
             "longitude": -79.394356,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.670265197753906,-79.39435577392578&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=Oc3AmvmPbeDyWhZ7H8f1455pJTk=",
             "isBuilding": true,
             "units": [
                 {
@@ -16484,7 +16477,6 @@
             "zipcode": "M5G2K5",
             "latitude": 43.657776,
             "longitude": -79.38329,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.65777587890625,-79.38329315185547&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=RqDcSUIIZT2F_g0Mj-WEvQz4kmc=",
             "isBuilding": true,
             "units": [
                 {
@@ -18897,7 +18889,6 @@
             "zipcode": "M5R0C2",
             "latitude": 43.674606,
             "longitude": -79.39953,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.67460632324219,-79.39952850341797&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=3vms0Q7w55-uUllrNAqACf27doM=",
             "isBuilding": true,
             "units": [
                 {
@@ -18927,7 +18918,6 @@
             "zipcode": "M5S0C6",
             "latitude": 43.664803,
             "longitude": -79.38697,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.66480255126953,-79.38697052001953&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=mYVo5acPeaSmjHFAq6Y9EG2QRn4=",
             "isBuilding": true,
             "units": [
                 {
@@ -19156,7 +19146,6 @@
             "zipcode": "M4J0A8",
             "latitude": 43.681126,
             "longitude": -79.332436,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.68112564086914,-79.33243560791016&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=zqdTPH-VyDOgDRaCnyozLe2u8wI=",
             "isBuilding": true,
             "units": [
                 {
@@ -19181,7 +19170,6 @@
             "zipcode": "M5A0L4",
             "latitude": 43.65222,
             "longitude": -79.37087,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6522216796875,-79.3708724975586&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=yENq797K-YSVSp-iHpsBMIMYxLQ=",
             "isBuilding": true,
             "units": [
                 {
@@ -20958,7 +20946,6 @@
             "isZillowOwned": false,
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.68015670776367,-79.28860473632812&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=uV9eThDZJDEUtTjmC2eQnRXxvv0=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "2 days ago",
@@ -22587,7 +22574,6 @@
             "zipcode": "M1B5Z3",
             "latitude": 43.791843,
             "longitude": -79.23728,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.79184341430664,-79.2372817993164&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=Nzw7qJwbTqicSUSDVwYoAtR_EKk=",
             "isBuilding": true,
             "units": [
                 {
@@ -24756,7 +24742,6 @@
             "zipcode": "M6K3R5",
             "latitude": 43.638775,
             "longitude": -79.41631,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.63877487182617,-79.41631317138672&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=dRM8d_pvtNXEKTxtKD1xycBVoZY=",
             "isBuilding": true,
             "units": [
                 {
@@ -24813,7 +24798,6 @@
             "unit": "# 2",
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.703704833984375,-79.40843200683594&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=P2PXamYYC48jpwn_J5bGkI8XGsE=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "2 days ago",
@@ -24834,7 +24818,6 @@
             "zipcode": "M4W3Z4",
             "latitude": 43.672985,
             "longitude": -79.38703,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6729850769043,-79.38703155517578&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=ETZV8uVpN6YY-Ww2RHFfCAFSISY=",
             "isBuilding": true,
             "units": [
                 {
@@ -27700,7 +27683,6 @@
             "zipcode": "M5G1S9",
             "latitude": 43.65398,
             "longitude": -79.38852,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.65398025512695,-79.38851928710938&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=gMRTsjMqYgNWsN8ETYLIvp-KD-I=",
             "isBuilding": true,
             "units": [
                 {
@@ -30801,7 +30783,6 @@
             "zipcode": "M5V0V9",
             "latitude": 43.64612,
             "longitude": -79.40054,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.6461181640625,-79.40054321289062&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=S7SgZjVAWTK_-P5_HtG28yHxCn4=",
             "isBuilding": true,
             "units": [
                 {
@@ -30831,7 +30812,6 @@
             "zipcode": "M5V2E7",
             "latitude": 43.647274,
             "longitude": -79.39167,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.647274017333984,-79.39167022705078&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=_ktLK-bUbmZ-qFO_GTERyuGpwvQ=",
             "isBuilding": true,
             "units": [
                 {
@@ -30871,7 +30851,6 @@
             "zipcode": "M5S3L9",
             "latitude": 43.668037,
             "longitude": -79.38844,
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.66803741455078,-79.38844299316406&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=ic1WzfDj8ZqUpvZ1LbVJABPD9Qs=",
             "isBuilding": true,
             "units": [
                 {
@@ -33481,7 +33460,6 @@
             "isZillowOwned": false,
             "isShowcaseListing": false,
             "listingSubType": {},
-            "imgSrc": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=575x242&zoom=17&center=43.787899017333984,-79.42965698242188&key=AIzaSyBWYJWCA8FNMQvSe_k3LKfDGJaEgdKwsco&signature=fomEhKxMfo-rhSXUy7Mzgqwtf5k=",
             "variableData": {
                 "type": "TIME_ON_INFO",
                 "text": "4 days ago",
