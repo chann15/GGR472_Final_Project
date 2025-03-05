@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3</title>
+    <!-- mapbox GL JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css' rel='stylesheet' />
+    <!-- mapbox geocoder plugin -->
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.css"
+        type="text/css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    <body>
+        <div id="my-map" class ="map-container">
+
+        <div class="absolute fl my24 mx24 py24 px24 bg-gray-faint round">
+          <form id="params">
+            <h4 class="txt-m txt-bold mb6">Choose a travel mode:</h4>
+            <div class="mb12 mr12 toggle-group align-center">
+              <label class="toggle-container">
+                <input name="profile" type="radio" value="walking" />
+                <div class="toggle toggle--active-null toggle--null">Walking</div>
+              </label>
+              <label class="toggle-container">
+                <input name="profile" type="radio" value="cycling" checked />
+                <div class="toggle toggle--active-null toggle--null">Cycling</div>
+              </label>
+              <label class="toggle-container">
+                <input name="profile" type="radio" value="driving" />
+                <div class="toggle toggle--active-null toggle--null">Driving</div>
+              </label>
+            </div>
+            <h4 class="txt-m txt-bold mb6">Choose a maximum duration:</h4>
+            <div class="mb12 mr12 toggle-group align-center">
+              <label class="toggle-container">
+                <input name="duration" type="radio" value="10" checked />
+                <div class="toggle toggle--active-null toggle--null">10 min</div>
+              </label>
+              <label class="toggle-container">
+                <input name="duration" type="radio" value="20" />
+                <div class="toggle toggle--active-null toggle--null">20 min</div>
+              </label>
+              <label class="toggle-container">
+                <input name="duration" type="radio" value="30" />
+                <div class="toggle toggle--active-null toggle--null">30 min</div>
+              </label>
+            </div>
+            <div class="mb12 mr12 toggle-group align-center">
+                <div id = 'coordinates'></div>
+            </div>
+            <h4 class="txt-m txt-bold mb6">Chose your location</h4>
+            <!-- Single Form for Latitude and Longitude -->
+            <form id="coordinates-form">
+                <button type="button" id="update-coordinates">Update Coordinates</button>
+            </form>
+
+            
+        </div>
+    
+        <!--Mapbox stuff-->
+        <script src="script.js"></script>    
+    </body>
+
+
+
+</html>
