@@ -50,52 +50,30 @@ const map = new mapboxgl.Map({
     getIso();
   });
 
-  map.on('load', () => {
-    // When the map loads, add the source and layer
-    map.addSource('iso', {
-      type: 'geojson',
-      data: {
-        'type': 'FeatureCollection',
-        'features': []
-      }
+ 
+let listing_data;
+
+fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads/main/Data/Whole_dataset_reformated.geojson')
+    .then(response => response.json())
+    .then(response => {
+        console.log(response); //Check response in console
+        listing_data = response; // Store geojson as variable using URL from fetch response
     });
 
-    map.addLayer(
-      {
-        'id': 'isoLayer',
-        'type': 'fill',
-        'source': 'iso',
-        'layout': {},
-        'paint': {
-          'fill-color': '#5a3fc0',
-          'fill-opacity': 0.3
-        }
-      },
-      'poi-label'
-    );
-});
+
+
+
     map.on('load', () => {
-        // This adds the data that outlines the listings
-        map.addSource('listing_data', {
-            type: 'geojson',
-            data: 'https://raw.githubusercontent.com/chann15/GGR472_Lab3/refs/heads/main/Data/output_GPT_Testing.geojson', // Corrected URL
-        });
-        
-        //This changes the aesthetic layout of the data, in paritucalr what size and colour, depending on thje zooming in and grouping level.
-        map.addLayer({
-            'id': 'listing_data',
-            'type': 'circle',
-            'source': 'listing_data',
-            'paint': {
-                'circle-radius': 5,  // Example size
-                'circle-color': '#ff0000', // Example color
-                'circle-opacity': 1
-            }
-        });
+        //console.log(listing_data.features[0]);
+        console.log(turf.booleanContains(listing_data.features[0], iso_data));
+    });
 
-    // Initialize the marker at the query coordinates
-    marker.setLngLat(lngLat).addTo(map);
 
-    // Make the API call
-    getIso();
-  });
+const listing_data_library = {
+    "type": "FeatureCollection",
+    "features": 'listing_data',
+    };
+const iso_data = {
+    "type": "FeatureCollection",
+    "features": 'iso',
+};
