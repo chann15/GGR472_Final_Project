@@ -1,79 +1,102 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhbm5pNDIiLCJhIjoiY201cjdmdmJxMDdodTJycHc2a3ExMnVqaiJ9.qKDYRE5K3C9f05Cj_JNbWA'; // Add default public map token from your Mapbox account
 
+
+
 const map = new mapboxgl.Map({
     container: 'my-map', // container id
     style: 'mapbox://styles/mapbox/streets-v12', // stylesheet
     center: [-79.3832, 43.6532],
-    zoom: 11.5 // starting zoom
+    zoom: 8 // starting zoom
   });
 
-  // Target the params form in the HTML
-  const params = document.getElementById('params');
 
-  // Create variables to use in getIso()
-  const urlBase = 'https://api.mapbox.com/isochrone/v1/mapbox/';
-  const lon = -79.3832;
-  const lat = 43.6532;
-  let profile = 'cycling';
-  let minutes = 10;
+  const box = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [-79.639, 43.653], // Southwest
+                        [-79.639, 43.755], // Southeast
+                        [-79.377, 43.755], // Northeast
+                        [-79.377, 43.653], // Northwest
+                        [-79.639, 43.653]  // Closing
+                    ]
+                ]
+            }
+        }
+    ]
+};
+  
 
-  // Set up a marker that you can use to show the query's coordinates
-  const marker = new mapboxgl.Marker({
-    'color': '#314ccd'
-  });
-
-  // Create a LngLat object to use in the marker initialization
-  // https://docs.mapbox.com/mapbox-gl-js/api/#lnglat
-  const lngLat = {
-    lon: lon,
-    lat: lat
-  };
-
-  // Create a function that sets up the Isochrone API query then makes a fetch call
-  async function getIso() {
-    const query = await fetch(
-      `${urlBase}${profile}/${lon},${lat}?contours_minutes=${minutes}&polygons=true&access_token=${mapboxgl.accessToken}`,
-      { method: 'GET' }
-    );
-    const data = await query.json();
-    // Set the 'iso' source's data to what's returned by the API query
-    map.getSource('iso').setData(data);
-  }
-
-  // When a user changes the value of profile or duration by clicking a button, change the parameter's value and make the API query again
-  params.addEventListener('change', (event) => {
-    if (event.target.name === 'profile') {
-      profile = event.target.value;
-    } else if (event.target.name === 'duration') {
-      minutes = event.target.value;
-    }
-    getIso();
-  });
-
- 
 let listing_data;
+let listing_in_iso;
+
 
 fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads/main/Data/Whole_dataset_reformated.geojson')
     .then(response => response.json())
     .then(response => {
         console.log(response); //Check response in console
         listing_data = response; // Store geojson as variable using URL from fetch response
+
+        listing_length = listing_data.features.length;
+        console.log(listing_length)
+
+        console.log(response[0])
+
+        listing_in_iso = [];
+        for (let i = 0; i <listing_length; i++){
+            if(turf.booleanContains(box.features[0], listing_data[i])){
+                listing_in_iso.push(listing_data[i]);
+            }
+        }
     });
 
 
+//The error stems from the fact that I can't store the data. the response data is correct but not the rest of it
 
 
-    map.on('load', () => {
-        //console.log(listing_data.features[0]);
-        console.log(turf.booleanContains(listing_data.features[0], iso_data));
-    });
 
 
-const listing_data_library = {
+const points = {
     "type": "FeatureCollection",
-    "features": 'listing_data',
-    };
-const iso_data = {
-    "type": "FeatureCollection",
-    "features": 'iso',
+    "features": listing_in_iso
 };
+
+
+
+
+
+
+map.on('load', () => {
+  map.addLayer({
+      id: 'line-bounding-box',
+      type: 'fill',
+      paint: {
+          'fill-color': '#3386c0',
+          'fill-opacity': 0.5
+      },
+      source: {
+          type: 'geojson',
+          data: box
+      }
+  });
+
+  map.addLayer({
+    id: 'random_points',
+    type: 'circle',
+    paint: {
+        'circle-radius': 8,
+        'circle-color': '#FF0000' // Corrected circle color with quotes
+    },
+    source: {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads/main/Data/Whole_dataset_reformated.geojson'
+    }
+});
+});
+
