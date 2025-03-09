@@ -5,8 +5,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhbm5pNDIiLCJhIjoiY201cjdmdmJxMDdodTJycHc2a
 const map = new mapboxgl.Map({
     container: 'my-map', // container id
     style: 'mapbox://styles/mapbox/streets-v12', // stylesheet
-    center: [-79.3832, 43.6532],
-    zoom: 8 // starting zoom
+    center: [-79.39514670504386, 43.661694006349904],
+    zoom: 13 // starting zoom
   });
 
 
@@ -31,10 +31,9 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
 
       // Create variables to use in getIso()
       const urlBase = 'https://api.mapbox.com/isochrone/v1/mapbox/';
-      const lon = -79.3832;
-      const lat = 43.6532;
-
-      let profile = 'cycling';
+      const lon = -79.39514670504386;
+      const lat = 43.661694006349904;
+      let profile = 'walking';
       let minutes = 10;
 
       // Set up a marker that you can use to show the query's coordinates
