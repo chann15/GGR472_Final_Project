@@ -25,16 +25,50 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
 //in order for the data to load you need to have it in an event handler 
 
 
+//once the points get clicked the isochrone map gets moved to that point
+map.on('click', 'music_centers', (e) => {
+  // Copy coordinates array.
+  const coordinates = e.features[0].geometry.coordinates.slice();
+  let longitude = coordinates[0]
+  let latitude = coordinates[1]
+
+  lon = longitude;
+  lat = latitude;
+
+  marker.setLngLat([longitude, latitude]).addTo(map);
+
+  getIso();
+
+  if (map.getLayer('listings_in')) {
+    // Clear the data by setting it to an empty GeoJSON object
+    map.getSource('listings_in').setData({
+      type: 'FeatureCollection',
+      features: []
+    });
+  }
+  
+});
+
+map.on('mouseenter', 'music_centers', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+
+// This changes the mouse icon
+map.on('mouseleave', 'music_centers', () => {
+  map.getCanvas().style.cursor = '';
+});
+
 
 //iso stuff
 
 
       // Create variables to use in getIso()
       const urlBase = 'https://api.mapbox.com/isochrone/v1/mapbox/';
-      const lon = -79.39514670504386;
-      const lat = 43.661694006349904;
+      let lon = -79.39514670504386;
+      let lat = 43.661694006349904;
       let profile = 'walking';
       let minutes = 10;
+
 
       // Set up a marker that you can use to show the query's coordinates
       const marker = new mapboxgl.Marker({
@@ -47,6 +81,17 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
         lon: lon,
         lat: lat
       };
+
+      params.addEventListener('change', (event) => {
+        if (event.target.name === 'profile') {
+          profile = event.target.value;
+        } else if (event.target.name === 'duration') {
+          minutes = event.target.value;
+        }
+        getIso();
+      });
+
+
 
       // Create a function that sets up the Isochrone API query then makes a fetch call
       async function getIso() {
@@ -70,60 +115,68 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
         }
         getIso();
       });
-      
-
 //iso stuff
-
-
-
 
 
 document.getElementById("update-coordinates").addEventListener("click", function() {
 
 
-    const num_points = listing_data.features.length; // Get the total number of points
+  const num_points = listing_data.features.length; // Get the total number of points
 
 
-    let num_points_in = [];
-    for (let i = 0; i < num_points; i++) {
-      // Check if the point is inside the isochrone polygon using Turf.js
-      if (turf.booleanPointInPolygon(listing_data.features[i], map.getSource('iso')._data.features[0])) {
-        num_points_in.push(listing_data.features[i]); // Add point if inside
-      }
+  let num_points_in = [];
+  for (let i = 0; i < num_points; i++) {
+    // Check if the point is inside the isochrone polygon using Turf.js
+    if (turf.booleanPointInPolygon(listing_data.features[i], map.getSource('iso')._data.features[0])) {
+      num_points_in.push(listing_data.features[i]); // Add point if inside
     }
+  }
 
-    console.log(num_points_in.length);
+  console.log(num_points_in.length);
 
-    const listings_in = {
-        type: "FeatureCollection",
-        features: num_points_in
-    };
+  const listings_in = {
+      type: "FeatureCollection",
+      features: num_points_in
+  };
 
 
-    if (map.getLayer('listings_in')) {
-        // Update the source data if the layer already exists
-        map.getSource('listings_in').setData(listings_in);
-    } else {
-        // Add the 'listings_in' layer if it doesn't exist
-        map.addLayer({
-            id: 'listings_in',
-            type: 'circle',
-            paint: {
-                'circle-radius': 8,
-                'circle-color': '#FF0000' // Corrected circle color with quotes
-            },
-            source: {
-                type: 'geojson',
-                data: listings_in
-            }
-        });
-    }
+  if (map.getLayer('listings_in')) {
+      // Update the source data if the layer already exists
+      map.getSource('listings_in').setData(listings_in);
+  } else {
+      // Add the 'listings_in' layer if it doesn't exist
+      map.addLayer({
+          id: 'listings_in',
+          type: 'circle',
+          paint: {
+              'circle-radius': 8,
+              'circle-color': '#FF0000' // Corrected circle color with quotes
+          },
+          source: {
+              type: 'geojson',
+              data: listings_in
+          }
+      });
+  }
 });
 
 
 
 
 map.on('load', () => {
+
+  map.addLayer({
+    id: 'music_centers',
+    type: 'circle',
+    paint: {
+        'circle-radius': 6,
+        'circle-color': '#36454F' // Corrected circle color with quotes
+    },
+    source: {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/smith-lg/ggr472-lab1/refs/heads/main/data/torontomusicvenues.geojson'
+    }
+});
     
     
 map.addSource('iso', {
@@ -154,5 +207,7 @@ map.addSource('iso', {
       // Make the API call
       getIso();
   
-});  
+});
+
+
 
