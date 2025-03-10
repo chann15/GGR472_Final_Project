@@ -26,7 +26,7 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
 
 
 //once the points get clicked the isochrone map gets moved to that point
-map.on('click', 'music_centers', (e) => {
+map.on('click', 'TTC_Stops', (e) => {
   // Copy coordinates array.
   const coordinates = e.features[0].geometry.coordinates.slice();
   let longitude = coordinates[0]
@@ -49,12 +49,12 @@ map.on('click', 'music_centers', (e) => {
   
 });
 
-map.on('mouseenter', 'music_centers', () => {
+map.on('mouseenter', 'TTC_Stops', () => {
   map.getCanvas().style.cursor = 'pointer';
 });
 
 // This changes the mouse icon
-map.on('mouseleave', 'music_centers', () => {
+map.on('mouseleave', 'TTC_Stops', () => {
   map.getCanvas().style.cursor = '';
 });
 
@@ -166,7 +166,7 @@ document.getElementById("update-coordinates").addEventListener("click", function
 map.on('load', () => {
 
   map.addLayer({
-    id: 'music_centers',
+    id: 'TTC_Stops',
     type: 'circle',
     paint: {
         'circle-radius': 6,
@@ -174,7 +174,7 @@ map.on('load', () => {
     },
     source: {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/smith-lg/ggr472-lab1/refs/heads/main/data/torontomusicvenues.geojson'
+        data: 'https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads/main/Data/TTC%20POINTS.geojson'
     }
 });
     
