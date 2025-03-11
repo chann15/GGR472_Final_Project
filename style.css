@@ -91,7 +91,7 @@
 /* Style for the 'Choose a travel mode' title */
 .travel-mode-title {
   font-size: 15px; /* Set the size of the title */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Verdana, sans-serif", Helvetica, Arial, sans-serif;
   font-weight: bold; /* Make the title bold */
   text-align: center; /* Center the title */
   margin-bottom: 10px; /* Add space below the title */
@@ -101,7 +101,7 @@
 /* Style for the 'Choose a maximum duration' title */
 .duration-title {
   font-size: 15px; /* Set the size of the title */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Verdana, sans-serif", Helvetica, Arial, sans-serif;
   font-weight: bold; /* Make the title bold */
   text-align: center; /* Center the title */
   margin-top: 20px ;
@@ -110,7 +110,7 @@
 }
 /* Styling for the Filters section title */
 .filter-title {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Custom font */
+  font-family: "Verdana, sans-serif", Helvetica, Arial, sans-serif; /* Custom font */
   font-size: 20px; /* Custom size */
   font-weight: 600; /* Custom weight (e.g., semi-bold) */
   color: #333; /* Custom color */
