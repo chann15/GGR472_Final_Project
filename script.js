@@ -4,7 +4,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhbm5pNDIiLCJhIjoiY201cjdmdmJxMDdodTJycHc2a
 
 const map = new mapboxgl.Map({
     container: 'my-map', // container id
-    style: 'mapbox://styles/mapbox/streets-v12', // stylesheet
+    style: 'mapbox://styles/lilydeng/cm7p7o49v019301qsd8cp0uqa', // stylesheet
     center: [-79.39514670504386, 43.661694006349904],
     zoom: 13 // starting zoom
   });
@@ -23,6 +23,28 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
     });
 
 //in order for the data to load you need to have it in an event handler 
+
+/*--------------------------------------------------------------------
+MAP CONTROLS
+--------------------------------------------------------------------*/
+map.on('load', function () {
+
+  // Add the fullscreen control to the bottom-right corner of the map
+  map.addControl(new mapboxgl.FullscreenControl(), 'right');
+});
+  // Add zoom and rotation controls to the bottom-right corner of the map
+  map.addControl(new mapboxgl.NavigationControl(), 'right');
+
+
+// Instantiate the geocoder plguin for location search
+const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    countries: "ca"
+});
+
+// Append geocoder search box to the designated div in the html
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 
 //once the points get clicked the isochrone map gets moved to that point
@@ -149,8 +171,8 @@ document.getElementById("update-coordinates").addEventListener("click", function
           id: 'listings_in',
           type: 'circle',
           paint: {
-              'circle-radius': 8,
-              'circle-color': '#FF0000' // Corrected circle color with quotes
+              'circle-radius': 7.5,
+              'circle-color': '#f06d51' // Corrected circle color with quotes
           },
           source: {
               type: 'geojson',
@@ -169,7 +191,7 @@ map.on('load', () => {
     id: 'TTC_Stops',
     type: 'circle',
     paint: {
-        'circle-radius': 6,
+        'circle-radius': 5,
         'circle-color': '#36454F' // Corrected circle color with quotes
     },
     source: {

@@ -4,13 +4,27 @@
     height: 100vh; /* Full height of the viewport */
   }
   
-
   .absolute {
     position: absolute;
     top: 20px; /* Moves it down a bit */
     left: 20px; /* Moves it right a bit */
     z-index: 1000; /* Ensures it's above the map */
-    background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    background: rgba(255, 255, 255, 0.658); /* Slight transparency */
     padding: 15px;
     border-radius: 8px;
   }
+
+  .map-search-container {
+    position: absolute; /* Absolute positioning to place it on the right */
+    top: 20px; /* Adjust this value to move the container down from the top */
+    right: 20px; /* Position the container 20px from the right edge of the viewport */
+    width: 260px; /* Width of the search container */
+    background: rgba(255, 255, 255, 0.596); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+.geocoder {
+    margin: 10px 0; /* Adjust margin between elements in the container */
+}
