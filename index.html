@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 3</title>
+  <title>Housing Navigator</title>
   <!-- mapbox GL JS -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css' rel='stylesheet' />
@@ -26,21 +26,28 @@
 </head>
 
 <body>
+  <!-- Navbar section -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light ps-4">
     <div class="container-fluid">
-      <a class="navbar-brand ml-auto" href="#" style="font-size: 1.3rem;">Housing Navigator</a> 
+      <!-- Logo and Navbar Brand -->
+      <a class="navbar-brand ml-auto" href="#" style="font-size: 1.3rem;">Housing Navigator</a>
+      <!-- Navbar toggle button for mobile view -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Collapsible navbar links -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav me-auto">
+          <!-- Home link -->
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
+          <!-- Support links -->
           <li class="nav-item">
             <a class="nav-link" href="#">Links for Support</a>
           </li>
+          <!-- Dropdown menu for additional info -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -52,25 +59,30 @@
             </div>
           </li>
         </ul>
-        <!-- Larger GIF -->
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDQ5eTN0cnNhOGtuOHk5MDN5c3Jvb3dwMzQ4c3hxbDJ2cW15Nm92YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/W5rzfABy4Fsp2NPAGS/giphy.gif" alt="GIF" class="img-fluid" style="width: 80px; height: auto;">
+        <!-- to insert the GIF in the dropdown bar -->
+        <img
+          src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDQ5eTN0cnNhOGtuOHk5MDN5c3Jvb3dwMzQ4c3hxbDJ2cW15Nm92YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/W5rzfABy4Fsp2NPAGS/giphy.gif"
+          alt="GIF" class="img-fluid" style="width: 80px; height: auto;">
       </div>
     </div>
   </nav>
-  
-  
-  
+
+
+    <!-- Search container positioned to the top right of the map -->
   <div id="my-map" class="map-container">
+      <!-- Search container positioned to the top right of the map -->
     <div class='map-search-container' style="position: absolute; top: 10px; right: 20px; z-index: 10;">
       <label class="option-label" for="geocoder">Search for location</label>
+    <!-- Geocoder search box -->
       <div id="geocoder" class="geocoder"></div>
-      <!-- Add these controls below the search bar -->
-<div id="map-controls-container"></div>
-
+      <!-- Added these controls below the search bar -->
+      <div id="map-controls-container"></div>
     </div>
-    
+
+ <!-- Form for travel mode and maximum duration -->
     <div class="absolute fl my24 mx24 py24 px24 bg-gray-faint round">
       <form id="params">
+       <!-- Travel mode selection (Walking, Cycling, Driving) -->
         <h4 class="txt-m txt-bold mb6">Choose a travel mode:</h4>
         <div class="mb12 mr12 toggle-group align-center">
           <label class="toggle-container">
@@ -86,6 +98,7 @@
             <div class="toggle toggle--active-null toggle--null">Driving</div>
           </label>
         </div>
+        <!-- Maximum duration selection (10, 20, 30 minutes) -->
         <h4 class="txt-m txt-bold mb6">Choose a maximum duration:</h4>
         <div class="mb12 mr12 toggle-group align-center">
           <label class="toggle-container">
@@ -101,13 +114,15 @@
             <div class="toggle toggle--active-null toggle--null">30 min</div>
           </label>
         </div>
+   <!-- Display coordinates info -->
         <div class="mb12 mr12 toggle-group align-center">
           <div id='coordinates'></div>
         </div>
-      <!-- Single Form for Latitude and Longitude -->
-<form id="coordinates-form">
-  <button type="button" class="btn btn-info" id="update-coordinates">Rental Units</button>
-</form>
+        <!-- Single Form for Latitude and Longitude-> Button to update coordinates -->
+
+        <form id="coordinates-form">
+          <button type="button" class="btn btn-info" id="update-coordinates">Rental Units</button>
+        </form>
 
 
     </div>

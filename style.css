@@ -1,9 +1,11 @@
+/* .map-container styles the container that holds the map */
 .map-container {
     position: relative; /* Ensures other elements inside are positioned relative to it */
     width: 100%;
     height: 100vh; /* Full height of the viewport */
   }
-  
+
+/* .absolute styles any element that should be positioned absolutely */
   .absolute {
     position: absolute;
     top: 20px; /* Moves it down a bit */
@@ -14,6 +16,7 @@
     border-radius: 8px;
   }
 
+ /* .map-search-container is the container for the search bar */
   .map-search-container {
     position: absolute; /* Absolute positioning to place it on the right */
     top: 20px; /* Adjust this value to move the container down from the top */
@@ -25,6 +28,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
 
+/* .geocoder styles individual elements inside the search container */
 .geocoder {
     margin: 10px 0; /* Adjust margin between elements in the container */
 }
