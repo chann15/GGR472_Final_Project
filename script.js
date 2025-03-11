@@ -178,7 +178,7 @@ document.getElementById("update-coordinates").addEventListener("click", function
       id: 'listings_in',
       type: 'circle',
       paint: {
-        'circle-radius': 7.5,
+        'circle-radius': 6,
         'circle-color': '#f06d51' // Corrected circle color with quotes
       },
       source: {
@@ -224,8 +224,8 @@ map.on('load', () => {
       'source': 'iso',
       'layout': {},
       'paint': {
-        'fill-color': '#5a3fc0',
-        'fill-opacity': 0.3
+        'fill-color': '#45afcb',
+        'fill-opacity': 0.35
       }
     },
     'poi-label'

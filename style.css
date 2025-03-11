@@ -32,3 +32,89 @@
 .geocoder {
     margin: 10px 0; /* Adjust margin between elements in the container */
 }
+
+/* Small square toggle button */
+.btn-collapse {
+  background-color: #93afc0; /* Dark color for the toggle */
+  color: rgb(255, 255, 255);
+  font-size: 18px; /* Size of the 'X' */
+  border: none;
+  width: 1px;
+  height: 1px;
+  border-radius: 0px; /* Rounded corners for the square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-collapse:hover {
+  background-color: #5a5a5a; /* Darker shade on hover */
+}
+
+/* Center the title at the top of the form */
+.filter-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Center the toggle options (Walking, Cycling, Driving) */
+.toggle-container-center {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between each toggle */
+}
+
+/* Center the "Rental Units" button */
+.text-center button {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Optional: Adjust the appearance of the toggle elements */
+.toggle-container {
+  text-align: center;
+}
+
+.toggle {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle:hover {
+  background-color: #f1f1f1;
+}
+/* Style for the 'Choose a travel mode' title */
+.travel-mode-title {
+  font-size: 15px; /* Set the size of the title */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold; /* Make the title bold */
+  text-align: center; /* Center the title */
+  margin-bottom: 10px; /* Add space below the title */
+  color: #333; /* Optional: Set the color of the text */
+}
+
+/* Style for the 'Choose a maximum duration' title */
+.duration-title {
+  font-size: 15px; /* Set the size of the title */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold; /* Make the title bold */
+  text-align: center; /* Center the title */
+  margin-bottom: 10px; /* Add space below the title */
+  color: #333; /* Optional: Set the color of the text */
+}
+/* Styling for the Filters section title */
+.filter-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Custom font */
+  font-size: 20px; /* Custom size */
+  font-weight: 600; /* Custom weight (e.g., semi-bold) */
+  color: #333; /* Custom color */
+  margin-bottom: 15px; /* Optional spacing */
+  text-transform: uppercase; /* Optional: makes text uppercase */
+  letter-spacing: 1px; /* Optional: adds spacing between letters */
+}
+
