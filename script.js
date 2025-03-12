@@ -40,11 +40,39 @@ map.addControl(new mapboxgl.NavigationControl(), 'right');
 const geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
   mapboxgl: mapboxgl,
-  countries: "ca" // Limit the geocoding to Canadian locations
+  countries: "ca", // Limit the geocoding to Canadian locations
+  zoom: 14
 });
 
 // Append geocoder search box to the designated div in the html
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+geocoder.on('result', function(e) {
+  // Get the coordinates from the search result
+  const coordinates = e.result.geometry.coordinates;
+    let longitude = coordinates[0]
+    let latitude = coordinates[1]
+  
+    lon = longitude;
+    lat = latitude;
+  
+    // Move the marker to the clicked coordinates and add it to the map
+    marker.setLngLat([longitude, latitude]).addTo(map);
+  
+    // Fetch isochrone data based on the clicked coordinates
+    getIso();
+  
+    // Clear any existing data in the 'listings_in' source
+    if (map.getLayer('listings_in')) {
+      // Clear the data by setting it to an empty GeoJSON object
+      map.getSource('listings_in').setData({
+        type: 'FeatureCollection',
+        features: []
+      });
+    }
+  });
+
+
 
 
 //once the points get clicked the isochrone map gets moved to that point
@@ -144,7 +172,7 @@ params.addEventListener('change', (event) => {
 
 // Event listener for updating coordinates (generating listing points) when the button is clicked by user
 
-document.getElementById("update-coordinates").addEventListener("click", function () {
+document.getElementById("generate_listings").addEventListener("click", function () {
 
 
   const num_points = listing_data.features.length; // Get the total number of points
