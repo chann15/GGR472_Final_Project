@@ -276,15 +276,15 @@ map.on('click', 'listings_in', (e) => {
   const description_units = JSON.parse(e.features[0].properties.units);
   let result = '';
 // Build the description string for the popup
-  if (description_units.length > 1) {
-    for (let i = 0; i < description_units.length; i++) {
-      result += `\nPrice: ${description_units[i].price}\nBeds: ${description_units[i].beds}\n`;
-    }
-  } else {
-    result += `Price: ${description_units[0].price}\nBeds: ${description_units[0].beds}`;
+if (description_units.length > 1) {
+  for (let i = 0; i < description_units.length; i++) {
+      result += `<br> Price: ${description_units[i].price} <br> Beds: ${description_units[i].beds}<br>`;
   }
+} else {
+  result += `<br> Price: ${description_units[0].price} <br> Beds: ${description_units[0].beds} <br>`;
+}
 
-  const description = description_first_part + "\n" + "\n" + result;
+  const description = description_first_part + "<br>" + result;
 
 
   if (['mercator', 'equirectangular'].includes(map.getProjection().name)) {
