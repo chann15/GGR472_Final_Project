@@ -142,7 +142,7 @@ params.addEventListener('change', (event) => {
 });
 //iso stuff
 
-// Event listener for updating coordinates when the button is clicked
+// Event listener for updating coordinates (generating listing points) when the button is clicked by user
 
 document.getElementById("update-coordinates").addEventListener("click", function () {
 
@@ -240,8 +240,8 @@ map.on('load', () => {
 
 
 
-
-//This allows the uers to click the actual data point, as well as dispalys the existing data. 
+// emily will edit this.... lines 246-259
+//This allows the users to click the actual data point, as well as dispalys the existing data. 
 map.on('click', 'listings_in', (e) => {
   const coordinates = e.features[0].geometry.coordinates.slice();
   const description_first_part = e.features[0].properties.address;
