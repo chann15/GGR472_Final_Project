@@ -252,7 +252,7 @@ map.on('load', () => {
       'source': 'iso',
       'layout': {},
       'paint': {
-        'fill-color': '#45afcb',
+        'fill-color': '#347ca9',
         'fill-opacity': 0.35
       }
     },
@@ -310,3 +310,142 @@ map.on('mouseleave', 'listings_in', () => {
   map.getCanvas().style.cursor = '';
 });
 
+// Layers and sources for your features
+let ttcStopsLayer = 'ttc-stops-layer';
+let generatedUnitsLayer = 'generated-units-layer';
+let isochromeLayer = 'isochrome-layer';
+
+// Function to update the legend dynamically
+function updateLegend() {
+  let legendContainer = document.getElementById('map-legend');
+  let legendItems = document.getElementById('legend-items');
+
+  // Clear the current legend
+  legendItems.innerHTML = '';
+
+// Check if the TTC stops layer is visible
+if (map.getLayer(ttcStopsLayer)) {
+  let li = document.createElement('li');
+  li.innerHTML = `<span class="legend-point" style="width: 10px; height: 10px; border-radius: 50%; background-color: black; margin-right: 10px;"></span> TTC Stops`;
+  legendItems.appendChild(li);
+}
+
+// Check if the generated units layer is visible
+if (map.getLayer(generatedUnitsLayer)) {
+  let li = document.createElement('li');
+  li.innerHTML = `<span class="legend-point" style="width: 10px; height: 10px; border-radius: 50%; background-color: #f06d51; margin-right: 10px;"></span> Generated Units`;
+  legendItems.appendChild(li);
+}
+
+
+  // Check if the isochrome layer is visible
+  if (map.getLayer(isochromeLayer)) {
+    let li = document.createElement('li');
+    li.innerHTML = `<span class="legend-color" style="background-color: #516ea0;"></span> Isochrome`;
+    legendItems.appendChild(li);
+  }
+
+  // Show the legend if there are items
+  if (legendItems.children.length > 0) {
+    legendContainer.style.display = 'block';
+  } else {
+    legendContainer.style.display = 'none';
+  }
+}
+
+// Example of adding layers to the map (this part depends on your map setup)
+map.on('load', function() {
+  // Add TTC Stops Layer (black dot)
+  map.addLayer({
+    id: ttcStopsLayer,
+    type: 'symbol',
+    source: {
+      type: 'geojson',
+      data: 'path/to/ttc_stops.geojson'
+    },
+    layout: {
+      'icon-image': 'circle-15', // Replace with your icon/image for TTC stops
+      'icon-color': 'black'
+    }
+  });
+
+  // Add Generated Units Layer (orange dot)
+  map.addLayer({
+    id: generatedUnitsLayer,
+    type: 'symbol',
+    source: {
+      type: 'geojson',
+      data: 'path/to/generated_units.geojson'
+    },
+    layout: {
+      'icon-image': 'circle-15', // Replace with your icon/image for units
+      'icon-color': '#f06d51'
+    }
+  });
+
+  // Add Isochrome Layer (polygon)
+  map.addLayer({
+    id: isochromeLayer,
+    type: 'fill',
+    source: {
+      type: 'geojson',
+      data: 'path/to/isochrome.geojson'
+    },
+    paint: {
+      'fill-color': '#45afcb',
+      'fill-opacity': 0.4
+    }
+  });
+// Add TTC Lines Layer (line)
+map.addLayer({
+  id: 'ttcLinesLayer',  // Unique ID for the TTC lines layer
+  type: 'line',
+  source: {
+    type: 'geojson',
+    data: 'path/to/ttc_lines.geojson'  // Replace with your actual TTC Lines GeoJSON path
+  },
+  paint: {
+    'line-color': 'hsla(332, 74%, 58%, 0.71)', // Set the line color with the HSLA code
+    'line-width': 2  // Adjust line width as necessary
+  }
+});
+  // Update the legend when the map is loaded
+  updateLegend();
+});
+
+// You may want to also update the legend if layers are toggled on or off dynamically
+map.on('layeradd', function() {
+  updateLegend();
+});
+
+map.on('layerremove', function() {
+  updateLegend();
+});
+
+map.on('load', function() {
+  // Add the TTC logo as an image to the map
+  map.loadImage('https://github.com/chann15/GGR472_Final_Project/raw/main/logos/ttc.png', function(error, image) {
+    if (error) throw error;
+
+    // Add image to map
+    map.addImage('ttc-logo', image);
+
+    // Add the TTC stops layer with the logo as an icon
+    map.addLayer({
+      'id': 'ttc-stops',
+      'type': 'symbol',
+      'source': {
+        'type': 'geojson',
+        'data': ttcStopsGeoJSON // Replace with the actual GeoJSON data for TTC stops
+      },
+      'layout': {
+        'icon-image': 'ttc-logo',
+        'icon-size': 0.1,  // Adjust the size of the logo as needed
+        'icon-allow-overlap': true
+      }
+    });
+
+    // Update legend after the map is loaded
+    updateLegend();
+  });
+});
