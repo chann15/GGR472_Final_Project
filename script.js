@@ -27,10 +27,11 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
 /*--------------------------------------------------------------------
 MAP CONTROLS
 --------------------------------------------------------------------*/
-
+map.on('load', function () {
 
   // Add the fullscreen control to the bottom-right corner of the map
-map.addControl(new mapboxgl.FullscreenControl(), 'right');
+  map.addControl(new mapboxgl.FullscreenControl(), 'right');
+});
 // Add zoom and rotation controls to the bottom-right corner of the map
 map.addControl(new mapboxgl.NavigationControl(), 'right');
 
