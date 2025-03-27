@@ -67,7 +67,6 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       </div>
     </div>
   </nav>
-
   <!-- Search container positioned to the top right of the map -->
   <div id="my-map" class="map-container">
     <!-- Search container positioned to the top right of the map -->
@@ -143,21 +142,39 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       <div id='coordinates'></div>
     </div>
 
-    <!-- Sliders and Legend -->
-    <div class="container mt-4">
-      <!-- Sliders Section -->
-      <div class="sliders">
-        <h4>Adjust Filters</h4>
-        <label for="bufferRange">Buffer Distance (km):</label>
-        <input type="range" id="bufferRange" name="bufferRange" min="0.25" max="1.25" step="0.25" value="0.5">
-        <span id="bufferValue">0.5 km</span>
+    <div id="legend" class="legend mt-4">
+      <h4>Legend</h4>
+    
+      <!-- Grocery Slider with Checkbox -->
+      <div id="grocery-slider-container">
+        <label>
+          <input type="checkbox" id="grocery-checkbox" checked>
+          Grocery Buffer (km):
+        </label>
+        <input type="range" id="grocery-slider" min="0.25" max="2.0" step="0.25" value="0.5">
+        <span id="grocery-slider-value">0.5 km</span>
       </div>
-
-      <!-- Legend Section -->
-      <div id="legend" class="legend mt-4">
-        <h4>Legend</h4>
-        <!-- Legend items will be appended here by JavaScript -->
+    
+      <!-- Parks Slider with Checkbox -->
+      <div id="parks-slider-container">
+        <label>
+          <input type="checkbox" id="parks-checkbox" checked>
+          Parks Buffer (km):
+        </label>
+        <input type="range" id="parks-slider" min="0.25" max="2.0" step="0.25" value="1.0">
+        <span id="parks-slider-value">1.0 km</span>
       </div>
+    
+      <!-- TTC Slider with Checkbox -->
+      <div id="ttc-slider-container">
+        <label>
+          <input type="checkbox" id="ttc-checkbox" checked>
+          TTC Buffer (km):
+        </label>
+        <input type="range" id="ttc-slider" min="0.25" max="2.0" step="0.25" value="1.5">
+        <span id="ttc-slider-value">1.5 km</span>
+      </div>
+    </div>
     </div>
   </div>
 
