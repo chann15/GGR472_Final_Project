@@ -199,14 +199,9 @@ document.getElementById("generate_listings").addEventListener("click", function 
         )
       : true; // If unchecked, ignore this buffer
 
-
-
     // Add point if it is inside all active buffers
     if (inIsochrone && inGroceryBuffer && inParksBuffer && inTTCBuffer) {
-      filteredPoints.push(point);
-      console.log('Point included:', point);
-    } else {
-      console.log('Point excluded:', point);
+      filteredPoints.push(point); 
     }
   }
 
@@ -285,48 +280,48 @@ map.on('load', () => {
 });
 
 // move fetch out, and legend code out of java to html, add checkboxes etc to the html - this is being grumpy
-let groceryResponse;
-let parksResponse;
-let ttcResponse;
+// let groceryResponse;
+// let parksResponse;
+// let ttcResponse;
 
-fetch('https://raw.githubusercontent.com/emilyamoffat/test/main/overpass_grocery.geojson')
-  .then(response => response.json())
-  .then(response => {
-    console.log(response); //Check response in console
-    groceryResponse = response; // Store geojson as variable using URL from fetch response
+// fetch('https://raw.githubusercontent.com/emilyamoffat/test/main/overpass_grocery.geojson')
+//   .then(response => response.json())
+//   .then(response => {
+//     console.log(response); //Check response in console
+//     groceryResponse = response; // Store geojson as variable using URL from fetch response
 
-  });
+//   });
 
-fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/ab671d350e44e397a5663ec1fb1cdf4d700a5fa9/Data/Parks%20and%20Recreation_TOR.geojson')
-  .then(response => response.json())
-  .then(response => {
-    console.log(response); //Check response in console
-    parksResponse = response; // Store geojson as variable using URL from fetch response
+// fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/ab671d350e44e397a5663ec1fb1cdf4d700a5fa9/Data/Parks%20and%20Recreation_TOR.geojson')
+//   .then(response => response.json())
+//   .then(response => {
+//     console.log(response); //Check response in console
+//     parksResponse = response; // Store geojson as variable using URL from fetch response
 
-  });
+//   });
 
-fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/TTC%20POINTS.geojson')
-  .then(response => response.json())
-  .then(response => {
-    console.log(response); //Check response in console
-    ttcResponse = response; // Store geojson as variable using URL from fetch response
+// fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/TTC%20POINTS.geojson')
+//   .then(response => response.json())
+//   .then(response => {
+//     console.log(response); //Check response in console
+//     ttcResponse = response; // Store geojson as variable using URL from fetch response
 
-  });
+//   });
 
 
 map.on('load', async () => {
 
-  // // Load grocery data
-  // const groceryResponse = await fetch('https://raw.githubusercontent.com/emilyamoffat/test/main/overpass_grocery.geojson');
-  // const groceryData = await groceryResponse.json();
+  // Load grocery data
+  const groceryResponse = await fetch('https://raw.githubusercontent.com/emilyamoffat/test/main/overpass_grocery.geojson');
+  const groceryData = await groceryResponse.json();
 
-  // // Load Parks and Recreation data
-  // const parksResponse = await fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/ab671d350e44e397a5663ec1fb1cdf4d700a5fa9/Data/Parks%20and%20Recreation_TOR.geojson');
-  // const parksData = await parksResponse.json();
+  // Load Parks and Recreation data
+  const parksResponse = await fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/ab671d350e44e397a5663ec1fb1cdf4d700a5fa9/Data/Parks%20and%20Recreation_TOR.geojson');
+  const parksData = await parksResponse.json();
 
-  // // Load TTC points data
-  // const ttcResponse = await fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/TTC%20POINTS.geojson');
-  // const ttcData = await ttcResponse.json();
+  // Load TTC points data
+  const ttcResponse = await fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/TTC%20POINTS.geojson');
+  const ttcData = await ttcResponse.json();
 
   // Add sources for buffers
   map.addSource('grocery-buffered-data', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
@@ -481,6 +476,7 @@ map.on('load', async () => {
         }
       });
     }
+    console.log('Listings_in source data:', map.getSource('listings_in')._data);
   });
 });
 
@@ -532,27 +528,26 @@ addBufferLayers();
 // emily will edit this later.... lines 246-259
 //This allows the users to click the actual data point, as well as dispalys the existing data. 
 map.on('click', 'listings_in', (e) => {
-  const coordinates = e.features[0].geometry.coordinates.slice();
-  const description_first_part = e.features[0].properties.address;
-  const description_units = JSON.parse(e.features[0].properties.units);
-  let result = '';
-// Build the description string for the popup
-if (description_units.length > 1) {
-  for (let i = 0; i < description_units.length; i++) {
-      result += `<br> Price: ${description_units[i].price} <br> Beds: ${description_units[i].beds}<br>`;
+  const feature = e.features[0];
+  if (!feature.properties || !feature.properties.address || !feature.properties.units) {
+    console.error('Feature properties are missing:', feature);
+    return;
   }
-} else {
-  result += `<br> Price: ${description_units[0].price} <br> Beds: ${description_units[0].beds} <br>`;
-}
+
+  const coordinates = feature.geometry.coordinates.slice();
+  const description_first_part = feature.properties.address;
+  const description_units = JSON.parse(feature.properties.units);
+  let result = '';
+  // Build the description string for the popup
+  if (description_units.length > 1) {
+    for (let i = 0; i < description_units.length; i++) {
+      result += `<br> Price: ${description_units[i].price} <br> Beds: ${description_units[i].beds}<br>`;
+    }
+  } else {
+    result += `<br> Price: ${description_units[0].price} <br> Beds: ${description_units[0].beds} <br>`;
+  }
 
   const description = description_first_part + "<br>" + result;
-
-
-  if (['mercator', 'equirectangular'].includes(map.getProjection().name)) {
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    }
-  }
 
   // Open a popup with the description at the clicked coordinates
   new mapboxgl.Popup()
@@ -570,4 +565,3 @@ map.on('mouseenter', 'filteredPoints', () => {
 map.on('mouseleave', 'listings_in', () => {
   map.getCanvas().style.cursor = '';
 });
-
