@@ -23,7 +23,6 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
 
   });
 
-
 /*--------------------------------------------------------------------
 MAP CONTROLS
 --------------------------------------------------------------------*/
@@ -34,7 +33,6 @@ map.on('load', function () {
 });
 // Add zoom and rotation controls to the bottom-right corner of the map
 map.addControl(new mapboxgl.NavigationControl(), 'right');
-
 
 // Instantiate the geocoder plguin for location search
 const geocoder = new MapboxGeocoder({
@@ -71,9 +69,6 @@ geocoder.on('result', function(e) {
       });
     }
   });
-
-
-
 
 //once the points get clicked the isochrone map gets moved to that point
 map.on('click', 'TTC_Stops', (e) => {
@@ -172,52 +167,224 @@ params.addEventListener('change', (event) => {
 
 // Event listener for updating coordinates (generating listing points) when the button is clicked by user
 
+
+let groceryResponse;
+let parksResponse;
+let ttcResponse;
+
+fetch('https://raw.githubusercontent.com/emilyamoffat/test/main/overpass_grocery.geojson')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response); //Check response in console
+    groceryResponse = response; // Store geojson as variable using URL from fetch response
+
+  });
+
+fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/ab671d350e44e397a5663ec1fb1cdf4d700a5fa9/Data/Parks%20and%20Recreation_TOR.geojson')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response); //Check response in console
+    parksResponse = response; // Store geojson as variable using URL from fetch response
+
+  });
+
+fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/TTC%20POINTS.geojson')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response); //Check response in console
+    ttcResponse = response; // Store geojson as variable using URL from fetch response
+
+  });
+
+
 document.getElementById("generate_listings").addEventListener("click", function () {
-
-
-  const num_points = listing_data.features.length; // Get the total number of points
-
-
-  let num_points_in = [];
-  
-  // Loop through the listing data and check if points are inside the isochrone polygon using Turf.js
-  for (let i = 0; i < num_points; i++) {
-    // Check if the point is inside the isochrone polygon using Turf.js
-    if (turf.booleanPointInPolygon(listing_data.features[i], map.getSource('iso')._data.features[0])) {
-      num_points_in.push(listing_data.features[i]); // Add points inside the polygon to the array
-    }
-  }
-
-  console.log(num_points_in.length); // Log the number of points inside the isochrone
-
-// Create a GeoJSON object to store points inside the isochrone
-  const listings_in = {
-    type: "FeatureCollection",
-    features: num_points_in
-  };
-
-  // Add or update the 'listings_in' layer on the map
-  if (map.getLayer('listings_in')) {
-    // Update the source data if the layer already exists
-    map.getSource('listings_in').setData(listings_in);
-  } else {
-    // Add the 'listings_in' layer if it doesn't exist
-    map.addLayer({
-      id: 'listings_in',
-      type: 'circle',
-      paint: {
-        'circle-radius': 6,
-        'circle-color': '#f06d51' // Corrected circle color with quotes
-      },
-      source: {
-        type: 'geojson',
-        data: listings_in
+    const num_points = listing_data.features.length; // Get the total number of points
+    let num_points_in = [];
+    
+    // Loop through the listing data and check if points are inside the isochrone polygon using Turf.js
+    for (let i = 0; i < num_points; i++) {
+      // Check if the point is inside the isochrone polygon using Turf.js
+      if (turf.booleanPointInPolygon(listing_data.features[i], map.getSource('iso')._data.features[0])) {
+        num_points_in.push(listing_data.features[i]); // Add points inside the polygon to the array
       }
-    });
+    };
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    if (document.getElementById('grocery-checkbox').checked) {
+      const num_grocery_points = groceryResponse.features.length; // Get the total number of TTC points
+      let grocery_points_in = [];
+      // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+      for (let i = 0; i < num_grocery_points; i++) {
+      // Check if the TTC point is inside the isochrone polygon using Turf.js
+      if (turf.booleanIntersects(groceryResponse.features[i], map.getSource('iso')._data.features[0])) {
+        grocery_points_in.push(groceryResponse.features[i]); // Add TTC points inside the polygon to the array
+      }
+      };
+      console.log(grocery_points_in);
+
+        // Code to execute if the checkbox is checked
+        const GrocerySliderValue = parseFloat(document.getElementById('grocery-slider').value);
+        console.log("slider" + GrocerySliderValue);
+        grocery_buffers = [];
+
+        for (let i = 0; i < grocery_points_in.length; i++) {
+          var Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "kilometers" });
+          grocery_buffers.push(Grocery_One_Buffer);
+        }
+        console.log(grocery_buffers);
+    };
+
+    if (document.getElementById('parks-checkbox').checked) {
+      const num_parks_points = parksResponse.features.length; // Get the total number of TTC points
+      let parks_points_in = [];
+      // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+      for (let i = 0; i < num_parks_points; i++) {
+      // Check if the TTC point is inside the isochrone polygon using Turf.js
+      if (turf.booleanIntersects(parksResponse.features[i], map.getSource('iso')._data.features[0])) {
+        parks_points_in.push(parksResponse.features[i]); // Add TTC points inside the polygon to the array
+      }
+      };
+      console.log(parks_points_in);
+
+        // Code to execute if the checkbox is checked
+        const ParksSliderValue = parseFloat(document.getElementById('parks-slider').value);
+        console.log("slider" + ParksSliderValue);
+        parks_buffers = [];
+
+        for (let i = 0; i < parks_points_in.length; i++) {
+          var Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "kilometers" });
+          parks_buffers.push(Parks_One_Buffer);
+        }
+        console.log(parks_buffers);
+    };
+
+    if (document.getElementById('ttc-checkbox').checked) {
+      const num_ttc_points = ttcResponse.features.length; // Get the total number of TTC points
+      let ttc_points_in = [];
+      // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+      for (let i = 0; i < num_ttc_points; i++) {
+      // Check if the TTC point is inside the isochrone polygon using Turf.js
+      if (turf.booleanIntersects(ttcResponse.features[i], map.getSource('iso')._data.features[0])) {
+        ttc_points_in.push(ttcResponse.features[i]); // Add TTC points inside the polygon to the array
+      }
+      };
+      console.log(ttc_points_in);
+
+        // Code to execute if the checkbox is checked
+        const ttcSliderValue = parseFloat(document.getElementById('ttc-slider').value);
+        console.log("slider" + ttcSliderValue);
+        ttc_buffers = [];
+
+        for (let i = 0; i < ttc_points_in.length; i++) {
+          var TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "kilometers" });
+          ttc_buffers.push(TTC_One_Buffer);
+        }
+        console.log(ttc_buffers);
+    };
+
+  
+    // Combine all the buffers into one GeoJSON object
+    // Combine all the buffers into one GeoJSON object, excluding empty buffers
+    const all_buffers = {
+      type: "FeatureCollection",
+      features: []
+    };
+    // Add non-empty and defined buffers to the combined buffers
+    if (typeof grocery_buffers !== "undefined" && grocery_buffers) {
+      all_buffers.features = all_buffers.features.concat(grocery_buffers);
+    }
+    
+    if (typeof parks_buffers !== "undefined" && parks_buffers) {
+      all_buffers.features = all_buffers.features.concat(parks_buffers);
+    }
+    
+    if (typeof ttc_buffers !== "undefined" && ttc_buffers) {
+      all_buffers.features = all_buffers.features.concat(ttc_buffers);
+    }
+    
+    console.log("Combined Buffers:", all_buffers);
+
+
+    const Listings_geojson = {
+      type: "FeatureCollection",
+      features: num_points_in
+    };
+
+    let filteredPoints = [];
+if (typeof all_buffers.features === "undefined" || all_buffers.features.length == 0) {
+  // If there are no buffers, add all the points to the filtered points
+  filteredPoints = num_points_in;
+} else {
+    // Loop through the listing data and check if points are inside the buffer polygons using Turf.js
+    for (let i = 0; i < Listings_geojson.features.length; i++) {
+        // Check if the point is inside the buffer polygons using Turf.js
+        for (let j = 0; j < all_buffers.features.length; j++) {
+          const buffer = all_buffers.features[j];
+            if (turf.booleanPointInPolygon(Listings_geojson.features[i], buffer)) {
+                filteredPoints.push(Listings_geojson.features[i]); // Add points inside the buffer polygons to the array
+            }
+        }
+    }
+  };
+    console.log("Filtered Points:", filteredPoints);
+
+
+    // Create a GeoJSON object to store filtered points
+    const listings_in = {
+      type: "FeatureCollection",
+      features: filteredPoints
+    };
+    console.log("Filtered_points:",listings_in);
+
+
+    //_______________________________________________________________________________________________________________________________
+
+// Create a new array to store unique points
+let uniquePoints = [];
+let seenCoordinates = new Set();
+
+// Loop through the features in listings_in to remove duplicates
+for (let i = 0; i < listings_in.features.length; i++) {
+  const feature = listings_in.features[i];
+  const coordinates = JSON.stringify(feature.geometry.coordinates); // Use coordinates as a unique identifier
+
+  // Check if the coordinates have already been seen
+  if (!seenCoordinates.has(coordinates)) {
+    seenCoordinates.add(coordinates); // Mark the coordinates as seen
+    uniquePoints.push(feature); // Add the unique feature to the array
   }
-});
+}
+
+// Update the listings_in object with unique points
+listings_in.features = uniquePoints;
+
+console.log("Listings without duplicates:", listings_in);
 
 
+
+    //_______________________________________________________________________________________________________________________________
+
+  
+    // Add or update the 'listings_in' layer on the map
+    if (map.getLayer('listings_in')) {
+      map.getSource('listings_in').setData(listings_in);
+    } else {
+      map.addLayer({
+        id: 'listings_in',
+        type: 'circle',
+        paint: {
+          'circle-radius': 5,
+          'circle-color': '#f06d51'
+        },
+        source: {
+          type: 'geojson',
+          data: listings_in
+        }
+      });
+    };
+
+  });
+  
 
 // Add the TTC Stops layer with data from the GeoJSON file
 map.on('load', () => {
@@ -266,32 +433,37 @@ map.on('load', () => {
 
 });
 
-
-
-// emily will edit this.... lines 246-259
 //This allows the users to click the actual data point, as well as dispalys the existing data. 
 map.on('click', 'listings_in', (e) => {
-  const coordinates = e.features[0].geometry.coordinates.slice();
-  const description_first_part = e.features[0].properties.address;
-  const description_units = JSON.parse(e.features[0].properties.units);
-  let result = '';
-// Build the description string for the popup
-if (description_units.length > 1) {
-  for (let i = 0; i < description_units.length; i++) {
-      result += `<br> Price: ${description_units[i].price} <br> Beds: ${description_units[i].beds}<br>`;
+  const feature = e.features[0];
+  if (!feature.properties || !feature.properties.address || !feature.properties.units) {
+    console.error('Feature properties are missing:', feature);
+    return;
   }
-} else {
-  result += `<br> Price: ${description_units[0].price} <br> Beds: ${description_units[0].beds} <br>`;
-}
+
+  const coordinates = feature.geometry.coordinates.slice();
+  const description_first_part = `<b>${feature.properties.address}</b>`; // Make the address bold
+  const description_units = JSON.parse(feature.properties.units);
+  let result = '';
+
+  // Build the description string for the popup
+  if (description_units.length > 1) {
+    for (let i = 0; i < description_units.length; i++) {
+      result += `<br><b>Price:</b> ${description_units[i].price}`;
+      if (description_units[i].beds !== undefined) {
+        result += ` <br><b>Beds:</b> ${description_units[i].beds}`;
+      }
+      result += `<br>`;
+    }
+  } else {
+    result += `<br><b>Price:</b> ${description_units[0].price}`;
+    if (description_units[0].beds !== undefined) {
+      result += ` <br><b>Beds:</b> ${description_units[0].beds}`;
+    }
+    result += `<br>`;
+  }
 
   const description = description_first_part + "<br>" + result;
-
-
-  if (['mercator', 'equirectangular'].includes(map.getProjection().name)) {
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    }
-  }
 
   // Open a popup with the description at the clicked coordinates
   new mapboxgl.Popup()
@@ -309,6 +481,7 @@ map.on('mouseenter', 'listings_in', () => {
 map.on('mouseleave', 'listings_in', () => {
   map.getCanvas().style.cursor = '';
 });
+
 
 // Layers and sources for your features
 let ttcStopsLayer = 'ttc-stops-layer';
