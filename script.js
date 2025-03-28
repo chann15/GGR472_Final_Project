@@ -198,6 +198,7 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/
 
 
 document.getElementById("generate_listings").addEventListener("click", function () {
+
     const num_points = listing_data.features.length; // Get the total number of points
     let num_points_in = [];
     
@@ -225,10 +226,10 @@ document.getElementById("generate_listings").addEventListener("click", function 
         // Code to execute if the checkbox is checked
         const GrocerySliderValue = parseFloat(document.getElementById('grocery-slider').value);
         console.log("slider" + GrocerySliderValue);
-        grocery_buffers = [];
+        let grocery_buffers = [];
 
         for (let i = 0; i < grocery_points_in.length; i++) {
-          var Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "meters" });
+          let Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "meters" });
           grocery_buffers.push(Grocery_One_Buffer);
         }
         console.log(grocery_buffers);
@@ -249,10 +250,10 @@ document.getElementById("generate_listings").addEventListener("click", function 
         // Code to execute if the checkbox is checked
         const ParksSliderValue = parseFloat(document.getElementById('parks-slider').value);
         console.log("slider" + ParksSliderValue);
-        parks_buffers = [];
+        let parks_buffers = [];
 
         for (let i = 0; i < parks_points_in.length; i++) {
-          var Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "meters" });
+          let Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "meters" });
           parks_buffers.push(Parks_One_Buffer);
         }
         console.log(parks_buffers);
@@ -273,10 +274,10 @@ document.getElementById("generate_listings").addEventListener("click", function 
         // Code to execute if the checkbox is checked
         const ttcSliderValue = parseFloat(document.getElementById('ttc-slider').value);
         console.log("slider" + ttcSliderValue);
-        ttc_buffers = [];
+        let ttc_buffers = [];
 
         for (let i = 0; i < ttc_points_in.length; i++) {
-          var TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "meters" });
+          let TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "meters" });
           ttc_buffers.push(TTC_One_Buffer);
         }
         console.log(ttc_buffers);
