@@ -198,7 +198,6 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/main/Data/
 
 
 document.getElementById("generate_listings").addEventListener("click", function () {
-
     const num_points = listing_data.features.length; // Get the total number of points
     let num_points_in = [];
     
@@ -229,11 +228,14 @@ document.getElementById("generate_listings").addEventListener("click", function 
         let grocery_buffers = [];
 
         for (let i = 0; i < grocery_points_in.length; i++) {
-          let Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "meters" });
+          let Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "kilometers" });
           grocery_buffers.push(Grocery_One_Buffer);
         }
         console.log(grocery_buffers);
-    };
+    } else{
+      grocery_buffers = [];
+    }
+    // Check if the checkbox is checked
 
     if (document.getElementById('parks-checkbox').checked) {
       const num_parks_points = parksResponse.features.length; // Get the total number of TTC points
@@ -253,11 +255,13 @@ document.getElementById("generate_listings").addEventListener("click", function 
         let parks_buffers = [];
 
         for (let i = 0; i < parks_points_in.length; i++) {
-          let Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "meters" });
+          let Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "kilometers" });
           parks_buffers.push(Parks_One_Buffer);
         }
         console.log(parks_buffers);
-    };
+    } else{
+      parks_buffers = [];
+    }
 
     if (document.getElementById('ttc-checkbox').checked) {
       const num_ttc_points = ttcResponse.features.length; // Get the total number of TTC points
@@ -274,14 +278,16 @@ document.getElementById("generate_listings").addEventListener("click", function 
         // Code to execute if the checkbox is checked
         const ttcSliderValue = parseFloat(document.getElementById('ttc-slider').value);
         console.log("slider" + ttcSliderValue);
-        let ttc_buffers = [];
+        ttc_buffers = [];
 
         for (let i = 0; i < ttc_points_in.length; i++) {
-          let TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "meters" });
+          var TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "kilometers" });
           ttc_buffers.push(TTC_One_Buffer);
         }
         console.log(ttc_buffers);
-    };
+    } else{
+      ttc_buffers = [];
+    }
 
   
     // Combine all the buffers into one GeoJSON object
@@ -386,24 +392,6 @@ console.log("Listings without duplicates:", listings_in);
 
   });
   
-  document.addEventListener("DOMContentLoaded", function () {
-    // Function to update slider value in the corresponding span
-    function updateSliderValue(sliderId, valueId) {
-        const slider = document.getElementById(sliderId);
-        const valueDisplay = document.getElementById(valueId);
-
-        slider.addEventListener("input", function () {
-            valueDisplay.textContent = slider.value + " km";
-        });
-    }
-
-    // Attach event listeners to all sliders
-    updateSliderValue("grocery-slider", "grocery-slider-value");
-    updateSliderValue("parks-slider", "parks-slider-value");
-    updateSliderValue("ttc-slider", "ttc-slider-value");
-});
-
-
 
 // Add the TTC Stops layer with data from the GeoJSON file
 map.on('load', () => {
