@@ -433,8 +433,6 @@ map.on('load', () => {
 
 });
 
-
-// emily will edit this later.... lines 246-259
 //This allows the users to click the actual data point, as well as dispalys the existing data. 
 map.on('click', 'listings_in', (e) => {
   const feature = e.features[0];
@@ -451,10 +449,18 @@ map.on('click', 'listings_in', (e) => {
   // Build the description string for the popup
   if (description_units.length > 1) {
     for (let i = 0; i < description_units.length; i++) {
-      result += `<br><b>Price:</b> ${description_units[i].price} <br><b>Beds:</b> ${description_units[i].beds}<br>`;
+      result += `<br><b>Price:</b> ${description_units[i].price}`;
+      if (description_units[i].beds !== undefined) {
+        result += ` <br><b>Beds:</b> ${description_units[i].beds}`;
+      }
+      result += `<br>`;
     }
   } else {
-    result += `<br><b>Price:</b> ${description_units[0].price} <br><b>Beds:</b> ${description_units[0].beds} <br>`;
+    result += `<br><b>Price:</b> ${description_units[0].price}`;
+    if (description_units[0].beds !== undefined) {
+      result += ` <br><b>Beds:</b> ${description_units[0].beds}`;
+    }
+    result += `<br>`;
   }
 
   const description = description_first_part + "<br>" + result;
