@@ -228,7 +228,7 @@ document.getElementById("generate_listings").addEventListener("click", function 
         grocery_buffers = [];
 
         for (let i = 0; i < grocery_points_in.length; i++) {
-          var Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "kilometers" });
+          var Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "meters" });
           grocery_buffers.push(Grocery_One_Buffer);
         }
         console.log(grocery_buffers);
@@ -252,7 +252,7 @@ document.getElementById("generate_listings").addEventListener("click", function 
         parks_buffers = [];
 
         for (let i = 0; i < parks_points_in.length; i++) {
-          var Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "kilometers" });
+          var Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "meters" });
           parks_buffers.push(Parks_One_Buffer);
         }
         console.log(parks_buffers);
@@ -276,7 +276,7 @@ document.getElementById("generate_listings").addEventListener("click", function 
         ttc_buffers = [];
 
         for (let i = 0; i < ttc_points_in.length; i++) {
-          var TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "kilometers" });
+          var TTC_One_Buffer = turf.buffer(ttc_points_in[i], ttcSliderValue, { units: "meters" });
           ttc_buffers.push(TTC_One_Buffer);
         }
         console.log(ttc_buffers);
@@ -385,6 +385,24 @@ console.log("Listings without duplicates:", listings_in);
 
   });
   
+  document.addEventListener("DOMContentLoaded", function () {
+    // Function to update slider value in the corresponding span
+    function updateSliderValue(sliderId, valueId) {
+        const slider = document.getElementById(sliderId);
+        const valueDisplay = document.getElementById(valueId);
+
+        slider.addEventListener("input", function () {
+            valueDisplay.textContent = slider.value + " km";
+        });
+    }
+
+    // Attach event listeners to all sliders
+    updateSliderValue("grocery-slider", "grocery-slider-value");
+    updateSliderValue("parks-slider", "parks-slider-value");
+    updateSliderValue("ttc-slider", "ttc-slider-value");
+});
+
+
 
 // Add the TTC Stops layer with data from the GeoJSON file
 map.on('load', () => {
