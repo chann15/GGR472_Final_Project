@@ -444,16 +444,17 @@ map.on('click', 'listings_in', (e) => {
   }
 
   const coordinates = feature.geometry.coordinates.slice();
-  const description_first_part = feature.properties.address;
+  const description_first_part = `<b>${feature.properties.address}</b>`; // Make the address bold
   const description_units = JSON.parse(feature.properties.units);
   let result = '';
+
   // Build the description string for the popup
   if (description_units.length > 1) {
     for (let i = 0; i < description_units.length; i++) {
-      result += `<br> Price: ${description_units[i].price} <br> Beds: ${description_units[i].beds}<br>`;
+      result += `<br><b>Price:</b> ${description_units[i].price} <br><b>Beds:</b> ${description_units[i].beds}<br>`;
     }
   } else {
-    result += `<br> Price: ${description_units[0].price} <br> Beds: ${description_units[0].beds} <br>`;
+    result += `<br><b>Price:</b> ${description_units[0].price} <br><b>Beds:</b> ${description_units[0].beds} <br>`;
   }
 
   const description = description_first_part + "<br>" + result;
