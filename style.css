@@ -54,7 +54,7 @@ html, body {
   top: 20px; /* Adjust this value to move the container down from the top */
   right: 20px; /* Position the container 20px from the right edge of the viewport */
   width: 260px; /* Width of the search container */
-  background: rgba(255, 255, 255, 0.76); /* Semi-transparent background */
+  background: rgba(255, 255, 255, 0.842); /* Semi-transparent background */
   padding: 10px;
   border-radius: 8px; /* Rounded corners for the container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
@@ -81,7 +81,25 @@ html, body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+.dropdown-menu {
+  min-width: 258px; /* Ensures a proper width */
+  padding: 5px 0; /* Keeps items inside */
+  background-color: white; /* Ensures a white background */
+  border-radius: 5px; /* Adds some rounding */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for visibility */
+}
+.dropdown-item {
+  font-size: 14px !important;
+  padding: 8px 15px;
+}
 
+.item-blue {
+  background-color: #e6f0f579 !important; /* Light blue */
+}
+
+.item-grey {
+  background-color: #ffffff !important; /* Light grey */
+}
 .btn-collapse:hover {
   background-color: #5a5a5a; /* Darker shade on hover */
 }
