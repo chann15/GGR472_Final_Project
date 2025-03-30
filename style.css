@@ -98,6 +98,24 @@ html, body {
 .toggle:hover {
   background-color: #f1f1f1;
 }
+
+.filter-scroll-container {
+  max-height: 700px; /* Adjust as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+  padding-right: 10px; /* Prevents text from being cut off */
+  scrollbar-width: thin; /* Makes scrollbar less intrusive */
+}
+
+/* Optional: Style for WebKit browsers (Chrome, Safari) */
+.filter-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter-scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
 /* Style for the 'Choose a travel mode' title */
 .travel-mode-title {
   font-size: 15px; /* Set the size of the title */
