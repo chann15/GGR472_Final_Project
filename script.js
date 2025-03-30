@@ -79,6 +79,7 @@ const geocoder = new MapboxGeocoder({
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 
+
 /*--------------------------------------------------------------------
 ISOCHRONE LOGIC
 --------------------------------------------------------------------*/
@@ -415,7 +416,7 @@ document.getElementById("Grocery_Stores").addEventListener("click", function () 
       type: 'circle',
       paint: {
         'circle-radius': 5,
-        'circle-color': '#FF0000'
+        'circle-color': 'rgb(126, 81, 160)'
       },
       source: {
         type: 'geojson',
