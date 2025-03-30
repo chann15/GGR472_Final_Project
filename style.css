@@ -89,7 +89,7 @@ html, body {
 /* Center the title at the top of the form */
 .filter-title {
   text-align: center;
-  margin-bottom: px;
+  margin-bottom: 5px;
 }
 
 /* Center the toggle options (Walking, Cycling, Driving) */
@@ -98,17 +98,25 @@ html, body {
   justify-content: center;
   gap: 15px; /* Adjust the gap between each toggle */
 }
+h4.travel-mode-title, h4.duration-title {
+  margin-bottom: 5px; /* Reduce space below the title */
+}
+
+.toggle-group {
+  margin-top: 0;  /* Remove extra space above the toggle group */
+  margin-bottom: 5px; /* Optional: Adjust spacing below */
+}
 
 /* Center the "Rental Units" button */
 .text-center button {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 /* Optional: Adjust the appearance of the toggle elements */
 .toggle-container {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .toggle {
@@ -128,7 +136,7 @@ html, body {
   font-family: "Verdana, sans-serif", Helvetica, Arial, sans-serif;
   font-weight: bold; /* Make the title bold */
   text-align: center; /* Center the title */
-  margin-bottom: 10px; /* Add space below the title */
+  margin-bottom: 8px; /* Add space below the title */
   color: #333; /* Optional: Set the color of the text */
 }
 
@@ -138,8 +146,8 @@ html, body {
   font-family: "Verdana, sans-serif", Helvetica, Arial, sans-serif;
   font-weight: bold; /* Make the title bold */
   text-align: center; /* Center the title */
-  margin-top: 20px ;
-  margin-bottom: 10px; /* Add space below the title */
+  margin-top: 10px ;
+  margin-bottom: 8px; /* Add space below the title */
   color: #333; /* Optional: Set the color of the text */
 }
 /* Styling for the Filters section title */
@@ -148,7 +156,7 @@ html, body {
   font-size: 18px; /* Custom size */
   font-weight: 600; /* Custom weight (e.g., semi-bold) */
   color: #333; /* Custom color */
-  margin-bottom: 10px; /* Optional spacing */
+  margin-bottom: 8px; /* Optional spacing */
   text-transform: uppercase; /* Optional: makes text uppercase */
   letter-spacing: 1px; /* Optional: adds spacing between letters */
 }
