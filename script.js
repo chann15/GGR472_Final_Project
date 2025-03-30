@@ -468,15 +468,11 @@ document.getElementById("Clear").addEventListener("click", function () {
   if (map.getLayer('grocery_points')) {
     map.removeLayer('grocery_points'); 
   }
-
-  // Now remove sources
-  if (map.getSource('parks_points')) {
-    map.removeSource('parks_points'); 
-  }
-  if (map.getSource('grocery_points')) {
-    map.removeSource('grocery_points'); 
+  if (map.getSource('listings_in')) {
+    map.removeSource('listings_in'); 
   }
 });
+
 
   /*--------------------------------------------------------------------
 LISTINGS INTERACTION
@@ -646,4 +642,29 @@ map.on('load', () => {
 
 });
 
+// Grocery slider
+let grocerySlider = document.getElementById("grocery-slider");
+let groceryOutput = document.getElementById("grocery-slider-value");
+groceryOutput.innerHTML = grocerySlider.value * 1000 + " meters";
 
+grocerySlider.oninput = function() {
+  groceryOutput.innerHTML = this.value * 1000 + " meters";
+};
+
+// Parks slider
+let parksSlider = document.getElementById("parks-slider");
+let parksOutput = document.getElementById("parks-slider-value");
+parksOutput.innerHTML = parksSlider.value * 1000 + " meters";
+
+parksSlider.oninput = function() {
+  parksOutput.innerHTML = this.value * 1000 + " meters";
+};
+
+// TTC slider
+let ttcSlider = document.getElementById("ttc-slider");
+let ttcOutput = document.getElementById("ttc-slider-value");
+ttcOutput.innerHTML = ttcSlider.value * 1000 + " meters";
+
+ttcSlider.oninput = function() {
+  ttcOutput.innerHTML = this.value * 1000 + " meters";
+};
