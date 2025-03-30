@@ -70,46 +70,13 @@
   <div id="map-legend" class="legend-container">
     <h4>Legend</h4>
     <ul id="legend-items">
-      <li><span class="legend-icon black"></span> TTC Stations</li>
+      <li><img src="https://play-lh.googleusercontent.com/iqllGQKm1nBOIZOl2iTFr9ze5YztJ1V3_9yM8VJostM6ZscPjxVqthy-ROBWbA5lS78" alt="TTC Station Icon" class="legend-icon1" /> TTC Stations</li>
       <li><span class="legend-icon orange"></span> Units Generated</li>
       <li><span class="legend-icon red"></span> Grocery Stores</li>
       <li><span class="legend-icon green"></span> Parks</li>
       <li><span class="legend-rectangle"></span> Isochrone Buffer</li>
     </ul>
   </div>
-  <style>
-    .legend-icon {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-
-    .black {
-      background-color: black;
-    }
-
-    .orange {
-      background-color: rgb(255, 136, 0);
-    }
-
-    .red {
-      background-color: red;
-    }
-
-    .green {
-      background-color: green;
-    }
-
-    .legend-rectangle {
-      display: inline-block;
-      width: 20px;
-      height: 12px;
-      background-color: #516ea0a9;
-      margin-right: 8px;
-    }
-  </style>
 
   <!-- Search container positioned to the top right of the map -->
   <div id="my-map" class="map-container">
@@ -182,11 +149,11 @@
         <div class="mb12 mr12 toggle-group align-center">
           <div class="toggle-container-center">
             <label class="toggle-container">
-              <button type="button" class="btn btn-info" id="Grocery_Stores"
+              <button type="button" class="btn btn-info1" id="Grocery_Stores"
                 style="font-family: Verdana, sans-serif; font-size: 12px;">Grocery Stores</button>
             </label>
             <label class="toggle-container">
-              <button type="button" class="btn btn-info" id="Parks"
+              <button type="button" class="btn btn-info1" id="Parks"
                 style="font-family: Verdana, sans-serif; font-size: 12px;">Parks</button>
             </label>
           </div>
@@ -226,27 +193,6 @@
   <span id="ttc-slider-value">1.5 km</span>
 </div>
 
-<style>
-  .slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 15px; /* Space between sliders */
-  }
-
-  .slider-container label {
-    font-weight: bold;
-    margin-bottom: 5px; /* Space between label and slider */
-  }
-
-  .slider-container input[type="range"] {
-    width: 100%; /* Ensures the slider takes full width */
-  }
-
-  .slider-container span {
-    margin-top: 5px;
-  }
-</style>
 
 <!-- Button Container -->
 <div class="button-group">
@@ -258,20 +204,7 @@
   </button>
 </div>
 
-<style>
-  .button-group {
-    display: flex;
-    gap: 10px; /* Adds spacing between buttons */
-    justify-content: center; /* Centers buttons horizontally */
-    align-items: center; /* Aligns buttons vertically */
-    margin-top: 25px; /* Adjust as needed */
-  }
 
-  .btn {
-    font-family: Verdana, sans-serif;
-    font-size: 12px;
-  }
-</style>
 
 
     <!-- Display Coordinates Info -->

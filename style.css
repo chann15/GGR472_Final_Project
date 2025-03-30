@@ -219,3 +219,75 @@ h4.travel-mode-title, h4.duration-title {
 }
 
 
+.legend-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.legend-icon1 {
+  width: 20px;  /* Adjust width */
+  height: 20px; /* Adjust height */
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+
+
+.orange {
+  background-color: rgb(255, 136, 0);
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.legend-rectangle {
+  display: inline-block;
+  width: 20px;
+  height: 12px;
+  background-color: #516ea0a9;
+  margin-right: 8px;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px; /* Space between sliders */
+}
+
+.slider-container label {
+  font-weight: bold;
+  margin-bottom: 5px; /* Space between label and slider */
+}
+
+.slider-container input[type="range"] {
+  width: 100%; /* Ensures the slider takes full width */
+}
+
+.slider-container span {
+  margin-top: 5px;
+}
+
+.btn-info1{
+background-color: blue;
+}
+.button-group {
+  display: flex;
+  gap: 10px; /* Adds spacing between buttons */
+  justify-content: center; /* Centers buttons horizontally */
+  align-items: center; /* Aligns buttons vertically */
+  margin-top: 25px; /* Adjust as needed */
+}
+
+.btn {
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+}

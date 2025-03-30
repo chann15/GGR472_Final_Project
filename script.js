@@ -1,5 +1,5 @@
 // Set the Mapbox access token
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhbm5pNDIiLCJhIjoiY201cjdmdmJxMDdodTJycHc2a3ExMnVqaiJ9.qKDYRE5K3C9f05Cj_JNbWA'; // Add default public map token from your Mapbox account
+mapboxgl.accessToken = 'pk.eyJ1IjoibGlseWRlbmciLCJhIjoiY201eGIwOG5jMDB6ZDJqcHJrdGtudzVscSJ9.-cRhTqv-44DxjWWHAi9GmQ'; // Add default public map token from your Mapbox account
 
 
 // Create a new map with Mapbox
@@ -621,8 +621,9 @@ map.on('load', () => {
     id: 'TTC_Stops',
     type: 'circle',
     paint: {
-      'circle-radius': 5,
-      'circle-color': '#36454F' // Corrected circle color with quotes
+      'circle-radius': 8,
+      'circle-color': '#36454F', // Corrected circle color with quotes
+      'circle-opacity': 0
     },
     source: {
       type: 'geojson',
