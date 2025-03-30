@@ -34,7 +34,7 @@ fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads
   });
 
 
-fetch('https://raw.githubusercontent.com/emilyamoffat/test/main/overpass_grocery.geojson')
+fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads/main/Data/GroceryStores.geojson')
   .then(response => response.json())
   .then(response => {
     console.log(response); //Check response in console
@@ -214,7 +214,6 @@ document.getElementById("generate_listings").addEventListener("click", function 
       num_points_in.push(listing_data.features[i]); // Add points inside the polygon to the array
     }
   };
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   if (document.getElementById('grocery-checkbox').checked) {
     const num_grocery_points = groceryResponse.features.length; // Get the total number of TTC points
@@ -350,7 +349,6 @@ filteredPoints = num_points_in;
   console.log("Filtered_points:",listings_in);
 
 
-  //_______________________________________________________________________________________________________________________________
 
 // Create a new array to store unique points
 let uniquePoints = [];
@@ -373,11 +371,6 @@ listings_in.features = uniquePoints;
 
 console.log("Listings without duplicates:", listings_in);
 
-
-
-  //_______________________________________________________________________________________________________________________________
-
-
   // Add or update the 'listings_in' layer on the map
   if (map.getLayer('listings_in')) {
     map.getSource('listings_in').setData(listings_in);
@@ -398,8 +391,94 @@ console.log("Listings without duplicates:", listings_in);
 
 });
 
+document.getElementById("Grocery_Stores").addEventListener("click", function () {
+  const num_grocery_points = groceryResponse.features.length; // Get the total number of TTC points
+  let grocery_points_in = [];
+  // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+  for (let i = 0; i < num_grocery_points; i++) {
+  // Check if the TTC point is inside the isochrone polygon using Turf.js
+  if (turf.booleanIntersects(groceryResponse.features[i], map.getSource('iso')._data.features[0])) {
+    grocery_points_in.push(groceryResponse.features[i]); // Add TTC points inside the polygon to the array
+  }
+  };
 
-/*--------------------------------------------------------------------
+  const grocery_points_formated = {
+    type: "FeatureCollection",
+    features: grocery_points_in
+  };
+
+  if (map.getLayer('grocery_points')) {
+    map.getSource('grocery_points').setData(grocery_points_formated);
+  } else {
+    map.addLayer({
+      id: 'grocery_points',
+      type: 'circle',
+      paint: {
+        'circle-radius': 5,
+        'circle-color': '#FF0000'
+      },
+      source: {
+        type: 'geojson',
+        data: grocery_points_formated
+      }
+    });
+  }
+});
+
+
+document.getElementById("Parks").addEventListener("click", function () {
+  const num_parks_points = parksResponse.features.length; // Get the total number of TTC points
+  let parks_points_in = [];
+  // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+  for (let i = 0; i < num_parks_points; i++) {
+  // Check if the TTC point is inside the isochrone polygon using Turf.js
+  if (turf.booleanIntersects(parksResponse.features[i], map.getSource('iso')._data.features[0])) {
+    parks_points_in.push(parksResponse.features[i]); // Add TTC points inside the polygon to the array
+  }
+  };
+
+  const park_points_formated = {
+    type: "FeatureCollection",
+    features: parks_points_in
+  };
+
+  if (map.getLayer('parks_points')) {
+    map.getSource('parks_points').setData(park_points_formated);
+  } else {
+    map.addLayer({
+      id: 'parks_points',
+      type: 'circle',
+      paint: {
+        'circle-radius': 5,
+        'circle-color': '#008000'
+      },
+      source: {
+        type: 'geojson',
+        data: park_points_formated
+      }
+    });
+  }
+});
+
+document.getElementById("Clear").addEventListener("click", function () {
+  // Remove layers first
+  if (map.getLayer('parks_points')) {
+    map.removeLayer('parks_points'); 
+  }
+  if (map.getLayer('grocery_points')) {
+    map.removeLayer('grocery_points'); 
+  }
+
+  // Now remove sources
+  if (map.getSource('parks_points')) {
+    map.removeSource('parks_points'); 
+  }
+  if (map.getSource('grocery_points')) {
+    map.removeSource('grocery_points'); 
+  }
+});
+
+  /*--------------------------------------------------------------------
 LISTINGS INTERACTION
 --------------------------------------------------------------------*/
 //This allows the users to click the actual data point, as well as dispalys the existing data. 
@@ -441,6 +520,32 @@ map.on('click', 'listings_in', (e) => {
     .addTo(map);
 });
 
+map.on('click', 'parks_points', (e) => {
+  const feature = e.features[0];
+  const coordinates = feature.geometry.coordinates.slice();
+  const description_info = feature.properties.ASSET_NAME;
+  const description = `<b> Park Name: <br> </b> `+ description_info;
+
+  // Open a popup with the description at the clicked coordinates
+  new mapboxgl.Popup()
+    .setLngLat(coordinates)
+    .setHTML(description)
+    .addTo(map);
+});
+
+map.on('click', 'grocery_points', (e) => {
+  const feature = e.features[0];
+  const coordinates = feature.geometry.coordinates.slice();
+  const description_info = feature.properties.name;
+  const description = `<b> Grocery Store: <br> </b> `+ description_info;
+
+  // Open a popup with the description at the clicked coordinates
+  new mapboxgl.Popup()
+    .setLngLat(coordinates)
+    .setHTML(description)
+    .addTo(map);
+});
+
 
 /*--------------------------------------------------------------------
 CHANGE OF CURSOR STYLE
@@ -464,6 +569,26 @@ map.on('mouseenter', 'listings_in', () => {
 
 // Reset cursor when leaving the 'listings_in' layer
 map.on('mouseleave', 'listings_in', () => {
+  map.getCanvas().style.cursor = '';
+});
+
+// Change cursor style when hovering over a listing in the 'listings_in' layer
+map.on('mouseenter', 'parks_points', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+
+// Reset cursor when leaving the 'listings_in' layer
+map.on('mouseleave', 'parks_points', () => {
+  map.getCanvas().style.cursor = '';
+});
+
+// Change cursor style when hovering over a listing in the 'listings_in' layer
+map.on('mouseenter', 'grocery_points', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+
+// Reset cursor when leaving the 'listings_in' layer
+map.on('mouseleave', 'grocery_points', () => {
   map.getCanvas().style.cursor = '';
 });
 
@@ -520,11 +645,5 @@ map.on('load', () => {
   getIso();
 
 });
-
-
-
-/*--------------------------------------------------------------------
-OTHER STUFF
---------------------------------------------------------------------*/
 
 
