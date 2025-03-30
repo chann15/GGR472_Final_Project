@@ -35,7 +35,8 @@
       <!-- Logo and Navbar Brand -->
       <a class="navbar-brand ml-auto" href="#" style="font-size: 1.3rem;">Housing Navigator</a>
       <!-- Navbar toggle button for mobile view -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Collapsible navbar links -->
@@ -48,10 +49,11 @@
           <!-- Support links -->
           <li class="nav-item">
             <a class="nav-link" href="support.html">Links for Support</a>
-          </li>          
+          </li>
           <!-- Dropdown menu for additional info -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               More Info
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -61,25 +63,64 @@
           </li>
         </ul>
         <!-- to insert the GIF in the dropdown bar -->
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDQ5eTN0cnNhOGtuOHk5MDN5c3Jvb3dwMzQ4c3hxbDJ2cW15Nm92YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/W5rzfABy4Fsp2NPAGS/giphy.gif" alt="GIF" class="img-fluid" style="width: 80px; height: auto;">
+        <img
+          src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDQ5eTN0cnNhOGtuOHk5MDN5c3Jvb3dwMzQ4c3hxbDJ2cW15Nm92YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/W5rzfABy4Fsp2NPAGS/giphy.gif"
+          alt="GIF" class="img-fluid" style="width: 80px; height: auto;">
       </div>
     </div>
   </nav>
 
-<!-- Legend Container -->
-<div id="map-legend" class="legend-container">
-  <h4>Legend</h4>
-  <ul id="legend-items">
-    <li><span class="legend-color" style="background-color: blue;"></span> Default</li>
-  </ul>
-</div>
+  <!-- Legend Container -->
+  <div id="map-legend" class="legend-container">
+    <h4>Legend</h4>
+    <ul id="legend-items">
+      <li><span class="legend-icon black"></span> TTC Stations</li>
+      <li><span class="legend-icon orange"></span> Units Generated</li>
+      <li><span class="legend-icon red"></span> Grocery Stores</li>
+      <li><span class="legend-icon green"></span> Parks</li>
+      <li><span class="legend-rectangle"></span> Isochrone Buffer</li>
+    </ul>
+  </div>
+  <style>
+    .legend-icon {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
 
+    .black {
+      background-color: black;
+    }
+
+    .orange {
+      background-color: rgb(255, 136, 0);
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .legend-rectangle {
+      display: inline-block;
+      width: 20px;
+      height: 12px;
+      background-color: #516ea0;
+      margin-right: 8px;
+    }
+  </style>
 
   <!-- Search container positioned to the top right of the map -->
   <div id="my-map" class="map-container">
     <!-- Search container positioned to the top right of the map -->
     <div class='map-search-container' style="position: absolute; top: 10px; right: 20px; z-index: 10;">
-      <label class="option-label" for="geocoder" style="font-family: Verdana, sans-serif; font-size: 15px;">Search for location</label>
+      <label class="option-label" for="geocoder" style="font-family: Verdana, sans-serif; font-size: 15px;">Search for
+        location</label>
       <!-- Geocoder search box -->
       <div id="geocoder" class="geocoder"></div>
       <!-- Added these controls below the search bar -->
@@ -89,7 +130,8 @@
     <!-- Collapsible Form for Travel Mode and Maximum Duration -->
     <div class="absolute fl my14 mx14 py14 px14 bg-gray-faint round">
       <!-- Small Toggle Button to Show/Hide the Form -->
-      <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#paramsForm" aria-expanded="false" aria-controls="paramsForm">
+      <button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#paramsForm"
+        aria-expanded="false" aria-controls="paramsForm">
         &#8211; <!-- '-' symbol for close button -->
       </button>
 
@@ -139,70 +181,108 @@
         </form>
 
 
-          <!-- Maximum Duration Selection (10, 20, 30 minutes) -->
-          <h4 class="txt-m txt-bold mb6 duration-title">Data Display</h4>
-          <div class="mb12 mr12 toggle-group align-center">
-            <div class="toggle-container-center">
-              <label class="toggle-container">
-                <button type="button" class="btn btn-info" id="Grocery_Stores" style="font-family: Verdana, sans-serif; font-size: 12px;">Grocery Stores</button>
-              </label>
-              <label class="toggle-container">
-                <button type="button" class="btn btn-info" id="Parks" style="font-family: Verdana, sans-serif; font-size: 12px;">Parks</button>
-              </label>
-            </div>
+        <!-- Maximum Duration Selection (10, 20, 30 minutes) -->
+        <h4 class="txt-m txt-bold mb6 duration-title">Data Display</h4>
+        <div class="mb12 mr12 toggle-group align-center">
+          <div class="toggle-container-center">
+            <label class="toggle-container">
+              <button type="button" class="btn btn-info" id="Grocery_Stores"
+                style="font-family: Verdana, sans-serif; font-size: 12px;">Grocery Stores</button>
+            </label>
+            <label class="toggle-container">
+              <button type="button" class="btn btn-info" id="Parks"
+                style="font-family: Verdana, sans-serif; font-size: 12px;">Parks</button>
+            </label>
           </div>
-
-          <div class="mb12 mr12 toggle-group align-center">
-            <div class="toggle-container-center">
-              <label class="toggle-container">
-                <button type="button" class="btn btn-info" id="Clear" style="font-family: Verdana, sans-serif; font-size: 12px;">Clear</button>
-              </label>
-            </div>
-          </div>
-        
-        <!-- Sliders for Grocery, Parks, and TTC Buffers -->`
-              <!-- Grocery Slider with Checkbox -->
-      <div id="grocery-slider-container">
-        <label>
-          <input type="checkbox" id="grocery-checkbox" checked>
-          Grocery Buffer (m):
-        </label>
-        <input type="range" id="grocery-slider" min="0.1" max="1" step="0.05" value="0.25">
-        <span id="grocery-slider-value">250 m</span>
-      </div>
-    
-      <!-- Parks Slider with Checkbox -->
-      <div id="parks-slider-container">
-        <label>
-          <input type="checkbox" id="parks-checkbox" checked>
-          Parks Buffer (km):
-        </label>
-        <input type="range" id="parks-slider" min="0.1" max="1" step="0.05" value="0.35">
-        <span id="parks-slider-value">1.0 km</span>
-      </div>
-    
-      <!-- TTC Slider with Checkbox -->
-      <div id="ttc-slider-container">
-        <label>
-          <input type="checkbox" id="ttc-checkbox" checked>
-          TTC Buffer (km):
-        </label>
-        <input type="range" id="ttc-slider" min="0.1" max="1" step="0.05" value="0.20">
-        <span id="ttc-slider-value">1.5 km</span>
-      </div>
-
-        <!-- Button to Update Coordinates (Rental Units) -->
-        <div class="text-center">
-          <button type="button" class="btn btn-info" id="generate_listings" style="font-family: Verdana, sans-serif; font-size: 12px;">Generate Units</button>
         </div>
-      </div>
-    </div>
+
+
+
+        <!-- Sliders for Grocery, Parks, and TTC Buffers -->`
+        <!-- Grocery Slider with Checkbox -->
+<!-- Grocery Slider with Checkbox -->
+<div class="slider-container">
+  <label for="grocery-slider">
+    <input type="checkbox" id="grocery-checkbox" checked>
+    Units with Grocery Stores within (m):
+  </label>
+  <input type="range" id="grocery-slider" min="0.1" max="1" step="0.05" value="0.25">
+  <span id="grocery-slider-value">250 m</span>
+</div>
+
+<!-- Parks Slider with Checkbox -->
+<div class="slider-container">
+  <label for="parks-slider">
+    <input type="checkbox" id="parks-checkbox" checked>
+    Units with Parks within (km):
+  </label>
+  <input type="range" id="parks-slider" min="0.1" max="1" step="0.05" value="0.35">
+  <span id="parks-slider-value">1.0 km</span>
+</div>
+
+<!-- TTC Slider with Checkbox -->
+<div class="slider-container">
+  <label for="ttc-slider">
+    <input type="checkbox" id="ttc-checkbox" checked>
+    Units with TTC stops within (km):
+  </label>
+  <input type="range" id="ttc-slider" min="0.1" max="1" step="0.05" value="0.20">
+  <span id="ttc-slider-value">1.5 km</span>
+</div>
+
+<style>
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px; /* Space between sliders */
+  }
+
+  .slider-container label {
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between label and slider */
+  }
+
+  .slider-container input[type="range"] {
+    width: 100%; /* Ensures the slider takes full width */
+  }
+
+  .slider-container span {
+    margin-top: 5px;
+  }
+</style>
+
+<!-- Button Container -->
+<div class="button-group">
+  <button type="button" class="btn btn-info" id="generate_listings">
+    Generate Units
+  </button>
+  <button type="button" class="btn btn-info" id="Clear">
+    Clear
+  </button>
+</div>
+
+<style>
+  .button-group {
+    display: flex;
+    gap: 10px; /* Adds spacing between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Aligns buttons vertically */
+    margin-top: 25px; /* Adjust as needed */
+  }
+
+  .btn {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+  }
+</style>
+
 
     <!-- Display Coordinates Info -->
     <div class="mb12 mr12 toggle-group align-center">
       <div id='coordinates'></div>
     </div>
-    </div>
+  </div>
   </div>
 
   <!--Mapbox stuff-->
@@ -214,7 +294,7 @@
 <div id="map-legend" class="legend-container" style="display: none;">
   <h4>Legend</h4>
   <ul id="legend-items"></ul>
-  
+
 </div>
 
 

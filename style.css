@@ -16,10 +16,10 @@ html, body {
 /* .absolute styles any element that should be positioned absolutely */
 .absolute {
   position: absolute;
-  top: 0px; /* Moves it down a bit */
-  left: 0px; /* Moves it right a bit */
+  top: 10px; /* Moves it down a bit */
+  left: 15px; /* Moves it right a bit */
   z-index: 1000; /* Ensures it's above the map */
-  background: rgba(255, 255, 255, 0.842); /* Slight transparency */
+  background: rgba(255, 255, 255, 0.753); /* Slight transparency */
   padding: 15px;
   border-radius: 8px;
 }
@@ -45,7 +45,7 @@ html, body {
 /* Small square toggle button */
 .btn-collapse {
   background-color: #93afc0; /* Dark color for the toggle */
-  color: rgb(255, 255, 255);
+  color: rgb(11, 102, 97);
   font-size: 18px; /* Size of the 'X' */
   border: none;
   width: 1px;
@@ -84,6 +84,7 @@ html, body {
 /* Optional: Adjust the appearance of the toggle elements */
 .toggle-container {
   text-align: center;
+  margin-top: 15px;
 }
 
 .toggle {
@@ -164,4 +165,5 @@ html, body {
   margin-right: 10px;
   border-radius: 3px;
 }
+
 
