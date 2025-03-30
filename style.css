@@ -277,7 +277,7 @@ h4.travel-mode-title, h4.duration-title {
 }
 
 .btn-info1{
-background-color: blue;
+background-color: rgba(140, 220, 252, 0.774);
 }
 .button-group {
   display: flex;
