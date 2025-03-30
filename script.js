@@ -468,13 +468,32 @@ document.getElementById("Clear").addEventListener("click", function () {
   if (map.getLayer('grocery_points')) {
     map.removeLayer('grocery_points'); 
   }
-  if (map.getSource('listings_in')) {
-    map.removeSource('listings_in'); 
-  }
+
+  const clearer = {
+    type: "FeatureCollection",
+    features: []
+  };
+
+  if (map.getLayer('listings_in')) {
+    map.getSource('listings_in').setData(clearer);
+  } else {
+    map.addLayer({
+      id: 'listings_in',
+      type: 'circle',
+      paint: {
+        'circle-radius': 5,
+        'circle-color': '#f06d51'
+      },
+      source: {
+        type: 'geojson',
+        data: listings_in
+      }
+    });
+  };
 });
 
 
-  /*--------------------------------------------------------------------
+/*--------------------------------------------------------------------
 LISTINGS INTERACTION
 --------------------------------------------------------------------*/
 //This allows the users to click the actual data point, as well as dispalys the existing data. 
