@@ -661,6 +661,11 @@ map.on('load', () => {
 
 });
 
+/*--------------------------------------------------------------------
+MAKES THE BUFFER SLIDERS HAVE AN ACTUAL VALUE
+--------------------------------------------------------------------*/
+
+
 // Grocery slider
 let grocerySlider = document.getElementById("grocery-slider");
 let groceryOutput = document.getElementById("grocery-slider-value");
