@@ -12,6 +12,30 @@ html, body {
   height: 100vh; /* Full height of the viewport */
   overflow: hidden; /* Prevents scroll inside the map container */
 }
+.navbar {
+  padding-top: 5px;    /* Reduce top padding */
+  padding-bottom: 5px; /* Reduce bottom padding */
+  min-height: 40px;    /* Set a smaller height */
+}
+
+.navbar-brand {
+  font-size: 1rem; /* Make the brand text smaller */
+  padding: 0; /* Remove extra padding */
+}
+
+.navbar-nav .nav-link {
+  padding: 5px 10px; /* Reduce padding on navbar links */
+  font-size: 0.9rem; /* Make text slightly smaller */
+}
+
+.navbar-toggler {
+  padding: 2px 5px; /* Reduce padding on the toggler button */
+}
+
+.navbar img {
+  width: 40px;  /* Make the GIF smaller */
+  height: auto;
+}
 
 /* .absolute styles any element that should be positioned absolutely */
 .absolute {
@@ -65,7 +89,7 @@ html, body {
 /* Center the title at the top of the form */
 .filter-title {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: px;
 }
 
 /* Center the toggle options (Walking, Cycling, Driving) */
@@ -98,24 +122,6 @@ html, body {
 .toggle:hover {
   background-color: #f1f1f1;
 }
-
-.filter-scroll-container {
-  max-height: 700px; /* Adjust as needed */
-  overflow-y: auto;  /* Enables vertical scrolling */
-  padding-right: 10px; /* Prevents text from being cut off */
-  scrollbar-width: thin; /* Makes scrollbar less intrusive */
-}
-
-/* Optional: Style for WebKit browsers (Chrome, Safari) */
-.filter-scroll-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.filter-scroll-container::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-}
-
 /* Style for the 'Choose a travel mode' title */
 .travel-mode-title {
   font-size: 15px; /* Set the size of the title */

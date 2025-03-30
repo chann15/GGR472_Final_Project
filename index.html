@@ -65,7 +65,7 @@
         <!-- to insert the GIF in the dropdown bar -->
         <img
           src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDQ5eTN0cnNhOGtuOHk5MDN5c3Jvb3dwMzQ4c3hxbDJ2cW15Nm92YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/W5rzfABy4Fsp2NPAGS/giphy.gif"
-          alt="GIF" class="img-fluid" style="width: 80px; height: auto;">
+          alt="GIF" class="img-fluid" style="width: 60px; height: auto;">
       </div>
     </div>
   </nav>
@@ -140,160 +140,149 @@
         <!-- Title for Filters -->
         <h3 class="filter-title">Filters</h3>
         <!-- Form for Travel Mode and Maximum Duration -->
-        <!-- Scrollable Wrapper -->
-        <div class="filter-scroll-container">
-          <form id="params">
-            <!-- Travel Mode Selection (Walking, Cycling, Driving) -->
-            <h4 class="txt-m txt-bold mb6 travel-mode-title">Choose a travel mode:</h4>
-            <div class="mb12 mr12 toggle-group align-center">
-              <div class="toggle-container-center">
-                <label class="toggle-container">
-                  <input name="profile" type="radio" value="walking" checked />
-                  <div class="toggle toggle--active-null toggle--null">Walking</div>
-                </label>
-                <label class="toggle-container">
-                  <input name="profile" type="radio" value="cycling" />
-                  <div class="toggle toggle--active-null toggle--null">Cycling</div>
-                </label>
-                <label class="toggle-container">
-                  <input name="profile" type="radio" value="driving" />
-                  <div class="toggle toggle--active-null toggle--null">Driving</div>
-                </label>
-              </div>
-            </div>
-
-            <!-- Maximum Duration Selection (10, 20, 30 minutes) -->
-            <h4 class="txt-m txt-bold mb6 duration-title">Choose a maximum duration:</h4>
-            <div class="mb12 mr12 toggle-group align-center">
-              <div class="toggle-container-center">
-                <label class="toggle-container">
-                  <input name="duration" type="radio" value="10" checked />
-                  <div class="toggle toggle--active-null toggle--null">10 min</div>
-                </label>
-                <label class="toggle-container">
-                  <input name="duration" type="radio" value="20" />
-                  <div class="toggle toggle--active-null toggle--null">20 min</div>
-                </label>
-                <label class="toggle-container">
-                  <input name="duration" type="radio" value="30" />
-                  <div class="toggle toggle--active-null toggle--null">30 min</div>
-                </label>
-              </div>
-            </div>
-          </form>
-
-
-          <!-- Maximum Duration Selection (10, 20, 30 minutes) -->
-          <h4 class="txt-m txt-bold mb6 duration-title">Data Display</h4>
+        <form id="params">
+          <!-- Travel Mode Selection (Walking, Cycling, Driving) -->
+          <h4 class="txt-m txt-bold mb6 travel-mode-title">Choose a travel mode:</h4>
           <div class="mb12 mr12 toggle-group align-center">
             <div class="toggle-container-center">
               <label class="toggle-container">
-                <button type="button" class="btn btn-info" id="Grocery_Stores"
-                  style="font-family: Verdana, sans-serif; font-size: 12px;">Grocery Stores</button>
+                <input name="profile" type="radio" value="walking" checked />
+                <div class="toggle toggle--active-null toggle--null">Walking</div>
               </label>
               <label class="toggle-container">
-                <button type="button" class="btn btn-info" id="Parks"
-                  style="font-family: Verdana, sans-serif; font-size: 12px;">Parks</button>
+                <input name="profile" type="radio" value="cycling" />
+                <div class="toggle toggle--active-null toggle--null">Cycling</div>
+              </label>
+              <label class="toggle-container">
+                <input name="profile" type="radio" value="driving" />
+                <div class="toggle toggle--active-null toggle--null">Driving</div>
               </label>
             </div>
           </div>
 
+          <!-- Maximum Duration Selection (10, 20, 30 minutes) -->
+          <h4 class="txt-m txt-bold mb6 duration-title">Choose a maximum duration:</h4>
+          <div class="mb12 mr12 toggle-group align-center">
+            <div class="toggle-container-center">
+              <label class="toggle-container">
+                <input name="duration" type="radio" value="10" checked />
+                <div class="toggle toggle--active-null toggle--null">10 min</div>
+              </label>
+              <label class="toggle-container">
+                <input name="duration" type="radio" value="20" />
+                <div class="toggle toggle--active-null toggle--null">20 min</div>
+              </label>
+              <label class="toggle-container">
+                <input name="duration" type="radio" value="30" />
+                <div class="toggle toggle--active-null toggle--null">30 min</div>
+              </label>
+            </div>
+          </div>
+        </form>
 
 
-          <!-- Sliders for Grocery, Parks, and TTC Buffers -->`
-          <!-- Grocery Slider with Checkbox -->
-          <!-- Grocery Slider with Checkbox -->
-          <div class="slider-container">
-            <label for="grocery-slider">
-              <input type="checkbox" id="grocery-checkbox">
-              Units with Grocery Stores within:
+        <!-- Maximum Duration Selection (10, 20, 30 minutes) -->
+        <h4 class="txt-m txt-bold mb6 duration-title">Data Display</h4>
+        <div class="mb12 mr12 toggle-group align-center">
+          <div class="toggle-container-center">
+            <label class="toggle-container">
+              <button type="button" class="btn btn-info" id="Grocery_Stores"
+                style="font-family: Verdana, sans-serif; font-size: 12px;">Grocery Stores</button>
             </label>
-            <input type="range" id="grocery-slider" min="0.1" max="1" step="0.05" value="0.25">
-            <span id="grocery-slider-value">250 m</span>
-          </div>
-
-          <!-- Parks Slider with Checkbox -->
-          <div class="slider-container">
-            <label for="parks-slider">
-              <input type="checkbox" id="parks-checkbox">
-              Units with Parks within:
+            <label class="toggle-container">
+              <button type="button" class="btn btn-info" id="Parks"
+                style="font-family: Verdana, sans-serif; font-size: 12px;">Parks</button>
             </label>
-            <input type="range" id="parks-slider" min="0.1" max="1" step="0.05" value="0.35">
-            <span id="parks-slider-value">1.0 km</span>
           </div>
-
-          <!-- TTC Slider with Checkbox -->
-          <div class="slider-container">
-            <label for="ttc-slider">
-              <input type="checkbox" id="ttc-checkbox">
-              Units with TTC stops within:
-            </label>
-            <input type="range" id="ttc-slider" min="0.1" max="1" step="0.05" value="0.20">
-            <span id="ttc-slider-value">1.5 km</span>
-          </div>
-
-          <style>
-            .slider-container {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
-              margin-bottom: 15px;
-              /* Space between sliders */
-            }
-
-            .slider-container label {
-              font-weight: bold;
-              margin-bottom: 5px;
-              /* Space between label and slider */
-            }
-
-            .slider-container input[type="range"] {
-              width: 100%;
-              /* Ensures the slider takes full width */
-            }
-
-            .slider-container span {
-              margin-top: 5px;
-            }
-          </style>
-
-          <!-- Button Container -->
-          <div class="button-group">
-            <button type="button" class="btn btn-info" id="generate_listings">
-              Generate Units
-            </button>
-            <button type="button" class="btn btn-info" id="Clear">
-              Clear
-            </button>
-          </div>
-        </div> <!-- End of Scrollable Wrapper -->
-      </div>
-
-      <style>
-        .button-group {
-          display: flex;
-          gap: 10px;
-          /* Adds spacing between buttons */
-          justify-content: center;
-          /* Centers buttons horizontally */
-          align-items: center;
-          /* Aligns buttons vertically */
-          margin-top: 25px;
-          /* Adjust as needed */
-        }
-
-        .btn {
-          font-family: Verdana, sans-serif;
-          font-size: 12px;
-        }
-      </style>
+        </div>
 
 
-      <!-- Display Coordinates Info -->
-      <div class="mb12 mr12 toggle-group align-center">
-        <div id='coordinates'></div>
-      </div>
+
+        <!-- Sliders for Grocery, Parks, and TTC Buffers -->`
+        <!-- Grocery Slider with Checkbox -->
+<!-- Grocery Slider with Checkbox -->
+<div class="slider-container">
+  <label for="grocery-slider">
+    <input type="checkbox" id="grocery-checkbox" >
+    Units with Grocery Stores within:
+  </label>
+  <input type="range" id="grocery-slider" min="0.1" max="1" step="0.05" value="0.25">
+  <span id="grocery-slider-value">250 m</span>
+</div>
+
+<!-- Parks Slider with Checkbox -->
+<div class="slider-container">
+  <label for="parks-slider">
+    <input type="checkbox" id="parks-checkbox" >
+    Units with Parks within:
+  </label>
+  <input type="range" id="parks-slider" min="0.1" max="1" step="0.05" value="0.35">
+  <span id="parks-slider-value">1.0 km</span>
+</div>
+
+<!-- TTC Slider with Checkbox -->
+<div class="slider-container">
+  <label for="ttc-slider">
+    <input type="checkbox" id="ttc-checkbox" >
+    Units with TTC stops within:
+  </label>
+  <input type="range" id="ttc-slider" min="0.1" max="1" step="0.05" value="0.20">
+  <span id="ttc-slider-value">1.5 km</span>
+</div>
+
+<style>
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px; /* Space between sliders */
+  }
+
+  .slider-container label {
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between label and slider */
+  }
+
+  .slider-container input[type="range"] {
+    width: 100%; /* Ensures the slider takes full width */
+  }
+
+  .slider-container span {
+    margin-top: 5px;
+  }
+</style>
+
+<!-- Button Container -->
+<div class="button-group">
+  <button type="button" class="btn btn-info" id="generate_listings">
+    Generate Units
+  </button>
+  <button type="button" class="btn btn-info" id="Clear">
+    Clear
+  </button>
+</div>
+
+<style>
+  .button-group {
+    display: flex;
+    gap: 10px; /* Adds spacing between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Aligns buttons vertically */
+    margin-top: 25px; /* Adjust as needed */
+  }
+
+  .btn {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+  }
+</style>
+
+
+    <!-- Display Coordinates Info -->
+    <div class="mb12 mr12 toggle-group align-center">
+      <div id='coordinates'></div>
     </div>
+  </div>
   </div>
 
   <!--Mapbox stuff-->
