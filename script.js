@@ -462,67 +462,23 @@ document.getElementById("Parks").addEventListener("click", function () {
 });
 
 document.getElementById("Clear").addEventListener("click", function () {
-  // Remove layers first
-
   const clearer = {
     type: "FeatureCollection",
-    features: [{}]
+    features: []
   };
 
   if (map.getLayer('parks_points')) {
     map.getSource('parks_points').setData(clearer);
-  } else {
-    map.addLayer({
-      id: 'parks_points',
-      type: 'circle',
-      paint: {
-        'circle-radius': 5,
-        'circle-color': '#f06d51'
-      },
-      source: {
-        type: 'geojson',
-        data: park_points_formated
-      }
-    });
-  };
-
-
-
+  }
 
   if (map.getLayer('grocery_points')) {
     map.getSource('grocery_points').setData(clearer);
-  } else {
-    map.addLayer({
-      id: 'grocery_points',
-      type: 'circle',
-      paint: {
-        'circle-radius': 5,
-        'circle-color': '#f06d51'
-      },
-      source: {
-        type: 'geojson',
-        data: grocery_points_formated
-      }
-    });
-  };
-
+  }
 
   if (map.getLayer('listings_in')) {
     map.getSource('listings_in').setData(clearer);
-  } else {
-    map.addLayer({
-      id: 'listings_in',
-      type: 'circle',
-      paint: {
-        'circle-radius': 5,
-        'circle-color': '#f06d51'
-      },
-      source: {
-        type: 'geojson',
-        data: listings_in
-      }
-    });
-  };
+  }
+
 });
 
 
