@@ -17,17 +17,6 @@ The **Housing Navigator** is a web-based tool designed to assist students in loc
 - **Turf.js**: Geospatial calculations for proximity analysis.
 - **JavaScript, HTML, CSS**: Core web technologies for frontend development.
 
-## Installation & Setup
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-repo/housing-navigator.git](https://github.com/chann15/GGR472_Final_Project
-   ```
-2. Navigate to the project folder:
-   ```sh
-   cd housing-navigator
-   ```
-3. Open `index.html` in a web browser.
-
 ## File Structure
 ```
 /housing-navigator
