@@ -24,7 +24,7 @@ let parksResponse;
 let ttcResponse;
 
 
-// Fetch GeoJSON data from a URL (this contains housing listing data)
+// Fetch GeoJSON data from github for listings, grocery stores, parks, and TTC points
 fetch('https://raw.githubusercontent.com/chann15/GGR472_Final_Project/refs/heads/main/Data/Whole_dataset_reformated.geojson')
   .then(response => response.json())
   .then(response => {
@@ -115,7 +115,7 @@ params.addEventListener('change', (event) => {
   getIso(); // Re-fetch isochrone data based on updated values
 });
 
-
+// Add event listener to update isochrone parameters (profile and duration) when user changes input values
 
 // Create a function that sets up the Isochrone API query then makes a fetch call
 async function getIso() {
@@ -215,6 +215,8 @@ document.getElementById("generate_listings").addEventListener("click", function 
       num_points_in.push(listing_data.features[i]); // Add points inside the polygon to the array
     }
   };
+
+  // Loop through the grocery, parks, TTC point data and check if points are inside the isochrone polygon using Turf.js
 
   if (document.getElementById('grocery-checkbox').checked) {
     const num_grocery_points = groceryResponse.features.length; // Get the total number of TTC points
@@ -654,7 +656,7 @@ map.on('load', () => {
 /*--------------------------------------------------------------------
 MAKES THE BUFFER SLIDERS HAVE AN ACTUAL VALUE
 --------------------------------------------------------------------*/
-
+// Update the displayed value of the buffer sliders (in meters) as the user adjusts them
 
 // Grocery slider
 let grocerySlider = document.getElementById("grocery-slider");
