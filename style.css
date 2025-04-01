@@ -308,52 +308,8 @@ background-color: rgba(140, 220, 252, 0.774);
   font-family: Verdana, sans-serif;
   font-size: 12px;
 }
-section {
-  background-color: rgb(226, 38, 38);
-  min-height: calc(100vh - 56px); /* Adjusts for the navbar height */
-  padding-top: 20px; /* Adds spacing */
-}
 
-.faq-container {
-    background-color: #ffffff; /* White background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-body, support.html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-section {
-  background-color: blueviolet;
-  min-height: 100vh; /* Make sure the section covers the full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Ensures content is positioned correctly */
-  padding-top: 70px; /* Adjust to match the navbar height */
-}
-
-
-.faq-item {
-  padding: 15px;
-  border-radius: 5px;
-  background: #ffffff;
-  border-left: 10px solid #007BFF;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-}
-
-.faq-question {
-  font-size: 18px;
+.faq-question3 {
+  font-size: 16px; /* Adjust as needed */
   font-weight: bold;
-  color: #007BFF;
-}
-
-.faq-answer {
-  font-size: 16px;
-  color: #555;
-  margin-top: 5px;
 }
