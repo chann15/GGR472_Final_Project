@@ -204,6 +204,7 @@ map.on('click', 'TTC_Stops', (e) => {
 });
 
 
+
 document.getElementById("generate_listings").addEventListener("click", function () {
   const num_points = listing_data.features.length; // Get the total number of points
   let num_points_in = [];
@@ -215,7 +216,6 @@ document.getElementById("generate_listings").addEventListener("click", function 
       num_points_in.push(listing_data.features[i]); // Add points inside the polygon to the array
     }
   };
-
   // Loop through the grocery, parks, TTC point data and check if points are inside the isochrone polygon using Turf.js
 
   if (document.getElementById('grocery-checkbox').checked) {
@@ -233,17 +233,15 @@ document.getElementById("generate_listings").addEventListener("click", function 
       // Code to execute if the checkbox is checked
       const GrocerySliderValue = parseFloat(document.getElementById('grocery-slider').value);
       console.log("slider" + GrocerySliderValue);
-      let grocery_buffers = [];
+      grocery_buffers = [];
 
       for (let i = 0; i < grocery_points_in.length; i++) {
-        let Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "kilometers" });
+        var Grocery_One_Buffer = turf.buffer(grocery_points_in[i], GrocerySliderValue, { units: "kilometers" });
         grocery_buffers.push(Grocery_One_Buffer);
       }
       console.log(grocery_buffers);
-  } else{
-    grocery_buffers = [];
-  }
   // Check if the checkbox is checked
+  };
 
   if (document.getElementById('parks-checkbox').checked) {
     const num_parks_points = parksResponse.features.length; // Get the total number of TTC points
@@ -260,16 +258,14 @@ document.getElementById("generate_listings").addEventListener("click", function 
       // Code to execute if the checkbox is checked
       const ParksSliderValue = parseFloat(document.getElementById('parks-slider').value);
       console.log("slider" + ParksSliderValue);
-      let parks_buffers = [];
+      parks_buffers = [];
 
       for (let i = 0; i < parks_points_in.length; i++) {
-        let Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "kilometers" });
+        var Parks_One_Buffer = turf.buffer(parks_points_in[i], ParksSliderValue, { units: "kilometers" });
         parks_buffers.push(Parks_One_Buffer);
       }
       console.log(parks_buffers);
-  } else{
-    parks_buffers = [];
-  }
+  };
 
   if (document.getElementById('ttc-checkbox').checked) {
     const num_ttc_points = ttcResponse.features.length; // Get the total number of TTC points
@@ -293,9 +289,7 @@ document.getElementById("generate_listings").addEventListener("click", function 
         ttc_buffers.push(TTC_One_Buffer);
       }
       console.log(ttc_buffers);
-  } else{
-    ttc_buffers = [];
-  }
+  };
 
 
   // Combine all the buffers into one GeoJSON object
