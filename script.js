@@ -198,7 +198,23 @@ map.on('click', 'TTC_Stops', (e) => {
       type: 'FeatureCollection',
       features: []
     });
-  }
+  };
+
+  if (map.getLayer('grocery_points')) {
+    // Clear the data by setting it to an empty GeoJSON object
+    map.getSource('grocery_points').setData({
+      type: 'FeatureCollection',
+      features: []
+    });
+  };
+
+  if (map.getLayer('parks_points')) {
+    // Clear the data by setting it to an empty GeoJSON object
+    map.getSource('parks_points').setData({
+      type: 'FeatureCollection',
+      features: []
+    });
+  };
 
 
 });
