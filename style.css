@@ -43,7 +43,7 @@ html, body {
   top: 10px; /* Moves it down a bit */
   left: 15px; /* Moves it right a bit */
   z-index: 1000; /* Ensures it's above the map */
-  background: rgba(255, 255, 255, 0.753); /* Slight transparency */
+  background: rgba(255, 255, 255, 0.932); /* Slight transparency */
   padding: 15px;
   border-radius: 8px;
 }
@@ -54,7 +54,7 @@ html, body {
   top: 20px; /* Adjust this value to move the container down from the top */
   right: 20px; /* Position the container 20px from the right edge of the viewport */
   width: 260px; /* Width of the search container */
-  background: rgba(255, 255, 255, 0.842); /* Semi-transparent background */
+  background: rgba(255, 255, 255, 0.911); /* Semi-transparent background */
   padding: 10px;
   border-radius: 8px; /* Rounded corners for the container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
@@ -307,9 +307,4 @@ background-color: rgba(140, 220, 252, 0.774);
 .btn {
   font-family: Verdana, sans-serif;
   font-size: 12px;
-}
-
-.faq-question3 {
-  font-size: 16px; /* Adjust as needed */
-  font-weight: bold;
 }
