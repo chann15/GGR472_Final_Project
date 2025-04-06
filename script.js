@@ -84,7 +84,6 @@ document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 ISOCHRONE LOGIC
 --------------------------------------------------------------------*/
 
-// Isochrone logic starts here
 
 // Create variables to use in getIso()
 const urlBase = 'https://api.mapbox.com/isochrone/v1/mapbox/';
@@ -100,7 +99,6 @@ const marker = new mapboxgl.Marker({
 });
 
 // Create a LngLat object to use in the marker initialization
-// https://docs.mapbox.com/mapbox-gl-js/api/#lnglat
 const lngLat = {
   lon: lon,
   lat: lat
@@ -140,10 +138,6 @@ params.addEventListener('change', (event) => {
   }
   getIso(); // Re-fetch isochrone data based on updated parameters
 });
-//iso stuff
-
-// Event listener for updating coordinates (generating listing points) when the button is clicked by user
-
 
 
 /*--------------------------------------------------------------------
@@ -235,13 +229,13 @@ document.getElementById("generate_listings").addEventListener("click", function 
   // Loop through the grocery, parks, TTC point data and check if points are inside the isochrone polygon using Turf.js
 
   if (document.getElementById('grocery-checkbox').checked) {
-    const num_grocery_points = groceryResponse.features.length; // Get the total number of TTC points
+    const num_grocery_points = groceryResponse.features.length; // Get the total number of grocery points
     let grocery_points_in = [];
-    // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+    // Loop through the grocery data and check if points are inside the isochrone polygon using Turf.js
     for (let i = 0; i < num_grocery_points; i++) {
-    // Check if the TTC point is inside the isochrone polygon using Turf.js
+    // Check if the grocery point is inside the isochrone polygon using Turf.js
     if (turf.booleanIntersects(groceryResponse.features[i], map.getSource('iso')._data.features[0])) {
-      grocery_points_in.push(groceryResponse.features[i]); // Add TTC points inside the polygon to the array
+      grocery_points_in.push(groceryResponse.features[i]); // Add grocery points inside the polygon to the array
     }
     };
     console.log(grocery_points_in);
@@ -260,11 +254,11 @@ document.getElementById("generate_listings").addEventListener("click", function 
   };
 
   if (document.getElementById('parks-checkbox').checked) {
-    const num_parks_points = parksResponse.features.length; // Get the total number of TTC points
+    const num_parks_points = parksResponse.features.length; // Get the total number of parks points
     let parks_points_in = [];
-    // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+    // Loop through the parks data and check if points are inside the isochrone polygon using Turf.js
     for (let i = 0; i < num_parks_points; i++) {
-    // Check if the TTC point is inside the isochrone polygon using Turf.js
+    // Check if the parks point is inside the isochrone polygon using Turf.js
     if (turf.booleanIntersects(parksResponse.features[i], map.getSource('iso')._data.features[0])) {
       parks_points_in.push(parksResponse.features[i]); // Add TTC points inside the polygon to the array
     }
@@ -308,7 +302,6 @@ document.getElementById("generate_listings").addEventListener("click", function 
   };
 
 
-  // Combine all the buffers into one GeoJSON object
   // Combine all the buffers into one GeoJSON object, excluding empty buffers
   const all_buffers = {
     type: "FeatureCollection",
@@ -329,7 +322,7 @@ document.getElementById("generate_listings").addEventListener("click", function 
   
   console.log("Combined Buffers:", all_buffers);
 
-
+//creates a geojson object for the listings in order to be used with turf.js
   const Listings_geojson = {
     type: "FeatureCollection",
     features: num_points_in
@@ -405,21 +398,22 @@ console.log("Listings without duplicates:", listings_in);
 });
 
 document.getElementById("Grocery_Stores").addEventListener("click", function () {
-  const num_grocery_points = groceryResponse.features.length; // Get the total number of TTC points
+  const num_grocery_points = groceryResponse.features.length; // Get the total number of Grovery stores points
   let grocery_points_in = [];
-  // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+  // Loop through the Grocery store data and check if points are inside the isochrone polygon using Turf.js
   for (let i = 0; i < num_grocery_points; i++) {
   // Check if the TTC point is inside the isochrone polygon using Turf.js
   if (turf.booleanIntersects(groceryResponse.features[i], map.getSource('iso')._data.features[0])) {
-    grocery_points_in.push(groceryResponse.features[i]); // Add TTC points inside the polygon to the array
+    grocery_points_in.push(groceryResponse.features[i]); // Add grocery store points inside the polygon to the array
   }
   };
 
+//create a geojson object for the parks in order to be displayed
   const grocery_points_formated = {
     type: "FeatureCollection",
     features: grocery_points_in
   };
-
+  //display the grocery points on the map
   if (map.getLayer('grocery_points')) {
     map.getSource('grocery_points').setData(grocery_points_formated);
   } else {
@@ -440,21 +434,21 @@ document.getElementById("Grocery_Stores").addEventListener("click", function () 
 
 
 document.getElementById("Parks").addEventListener("click", function () {
-  const num_parks_points = parksResponse.features.length; // Get the total number of TTC points
+  const num_parks_points = parksResponse.features.length; // Get the total number of Park points
   let parks_points_in = [];
-  // Loop through the TTC data and check if points are inside the isochrone polygon using Turf.js
+  // Loop through the Park data and check if points are inside the isochrone polygon using Turf.js
   for (let i = 0; i < num_parks_points; i++) {
-  // Check if the TTC point is inside the isochrone polygon using Turf.js
+  // Check if the Park point is inside the isochrone polygon using Turf.js
   if (turf.booleanIntersects(parksResponse.features[i], map.getSource('iso')._data.features[0])) {
-    parks_points_in.push(parksResponse.features[i]); // Add TTC points inside the polygon to the array
+    parks_points_in.push(parksResponse.features[i]); // Add Park points inside the polygon to the array
   }
   };
-
+//create a geojson object for the parks in order to be displayed
   const park_points_formated = {
     type: "FeatureCollection",
     features: parks_points_in
   };
-
+//display the parks points on the map
   if (map.getLayer('parks_points')) {
     map.getSource('parks_points').setData(park_points_formated);
   } else {
@@ -473,6 +467,7 @@ document.getElementById("Parks").addEventListener("click", function () {
   }
 });
 
+//removes all the points from the map
 document.getElementById("Clear").addEventListener("click", function () {
   const clearer = {
     type: "FeatureCollection",
