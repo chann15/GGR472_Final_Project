@@ -3,6 +3,9 @@
 ## Overview
 The **Housing Navigator** is a web-based tool designed to assist students in locating housing options based on accessibility to essential amenities such as grocery stores, parks, and public transit (TTC). The project integrates **Mapbox GL JS**, **Bootstrap**, and **Turf.js** to provide interactive mapping and filtering capabilities.
 
+## Access
+Here is the [link](https://chann15.github.io/GGR472_Final_Project/) to the final project
+
 ## Features
 - **Display Amenities**: Including TTC stations, grocery stores, parks, and housing units.
 - **Search Functionality**: Uses Mapbox Geocoder for location-based searches.
